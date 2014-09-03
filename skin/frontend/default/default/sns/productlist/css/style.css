@@ -1,0 +1,13 @@
+.sns-productlist.style-default .col-1{width: 100%;}
+.sns-productlist.style-default .col-2{width: 50%;}
+.sns-productlist.style-default .col-3{width: 33.33%;}
+.sns-productlist.style-default .col-4{width: 25%;}
+.sns-productlist.style-default .col-5{width: 20%;}
+.sns-productlist.style-default .col-6{width: 16.66%;}
+.sns-productlist.style-default .item{float: left;}
+.sns-productlist.style-default .item.first{clear: both}
+.sns-productlist.style-default .item .item-inner{
+	padding: 10px;
+}
+.sns-productlist.style-default .item-box{position: relative;}
+.sns-productlist.style-default .item-box .ico-product{position: absolute; left: 10px; top: 10px;}

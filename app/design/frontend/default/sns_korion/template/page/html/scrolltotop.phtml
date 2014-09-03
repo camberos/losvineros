@@ -1,0 +1,28 @@
+<?php
+?>
+<a id="sns-totop" href="#"><i class="icon-angle-up"></i></a>
+
+<script type="text/javascript">
+	$sns_jq(function($){
+		// back to top
+		$("#sns-totop").hide();
+		$(function () {
+			var wh = $(window).height();
+			var whtml =  $(document).height();
+			$(window).scroll(function () {
+				if ($(this).scrollTop() > whtml/10) {
+					$('#sns-totop').fadeIn();
+				} else {
+					$('#sns-totop').fadeOut();
+				}
+			});
+			$('#sns-totop').click(function () {
+				$('body,html').animate({
+					scrollTop: 0
+				}, 800);
+				return false;
+			});
+		});
+		// end back to top
+	});
+</script>

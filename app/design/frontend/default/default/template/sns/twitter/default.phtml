@@ -1,0 +1,58 @@
+<?php
+/*------------------------------------------------------------------------
+ # SNS Twitter - Version 1.0
+ * Copyright (C) 2013 The SNS Theme. All Rights Reserved.
+ * @license - GNU/GPL, http://www.gnu.org/licenses/gpl.html
+ * Author: SNS Theme
+ * Websites: http://www.snstheme.com
+-------------------------------------------------------------------------*/
+$options         = $this->getConfigObject();
+$class  = "";
+$class .= ($options->avartar)?'':' no-avartar';
+$class .= ($options->follow_link)?'':' no-followlink';
+$class .= ($options->interact_link)?'':' no-interactlink';
+$class .= ($options->date)?'':' no-date';
+?>
+<?php if($options->pretext): ?>
+<div class="pretext"><div><?php echo $options->pretext; ?></div></div>
+<?php endif; ?>
+<div class="block block-twitter span4">
+	<div class="block-title"><?php echo $options->title; ?></div>
+	<?php
+	if($options->follow_link && $options->account_name!=''){ ?>
+	<a class="follow-link" href="http://twitter.com/follow?user=<?php echo $options->account_name; ?>">
+		<span><?php echo $this->__("Follow"); ?></span>
+	</a>
+	<?php
+	} ?>
+	<div class="block-content clearfix">
+		<div id="sns_twitter" class="<?php echo $class; ?>">
+		</div>
+		<script type="text/javascript">
+			function handleTweets(tweets){
+				var x = tweets.length;
+				var n = 0;
+				var element = document.getElementById('sns_twitter');
+				var html = '<ul>';
+				while(n < x) {
+					html += '<li>' + tweets[n] + '</li>';
+					n++;
+				}
+				html += '</ul>';
+				element.innerHTML = html;
+			}
+			function dateFormater(date) {
+				return date.toDateString();
+			}
+			$sns_jq(document).ready(function(){
+				var widgetid = '<?php echo $options->widgets_id; ?>';
+				var limit = <?php echo $options->limit; ?>;
+				twitterFetcher.fetch(widgetid, 'sns_twitter', limit, true, true, true, dateFormater, true);
+			});
+		</script>
+	</div>
+</div>
+<?php if($options->posttext): ?>
+<div class="posttext"><div><?php echo $options->posttext; ?></div></div>
+<?php endif; ?>
+

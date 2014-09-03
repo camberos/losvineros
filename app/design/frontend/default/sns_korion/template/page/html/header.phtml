@@ -1,0 +1,131 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design_default
+ * @package    Mage
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+global $var_snstheme;
+?>
+<div id="sns_topheader" class="wrap">
+	<div class="container">
+        <div class="row-fluid">
+			<div class="topheader-left span3">
+				<div class="sns-switch">
+					<div class="switch-inner">
+						<?php echo $this->getChildHtml('store_language') ?>
+						<?php echo $this->getChildHtml('currency') ?>
+					</div>
+				</div>
+			</div>
+			<div class="topheader-right span9">
+				<div class="topheader-right-inner">
+					<div class="sns-quickaccess">
+						<div class="quickaccess-inner">
+						<!--<span class="welcome"><?php echo $this->getWelcome() ?></span>-->
+						<?php echo $this->getChildHtml('topLinks') ?>
+
+						<div class="modal fade" id="modal_login" style="display:none">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header block">
+						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						          <div class="block-title modal-title"><?php echo $this->__('Log In')?></div>
+						        </div>
+						        <div class="modal-body">
+						          <?php echo $this->getChildHtml('toplink_form_minilogin') ?>
+						        </div>
+						      </div><!-- /.modal-content -->
+						    </div><!-- /.modal-dialog -->
+						</div><!-- /.modal -->
+						<div class="modal fade" id="modal_regis" style="display:none">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header block">
+						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						          <div class="block-title modal-title"><?php echo $this->__('Register')?></div>
+						        </div>
+						        <div class="modal-body">
+						          <?php echo $this->getChildHtml('toplink_form_register') ?>
+						        </div>
+						      </div><!-- /.modal-content -->
+						    </div><!-- /.modal-dialog -->
+						</div><!-- /.modal -->
+						<?php if( !$this->helper('customer')->isLoggedIn() ): ?>
+						<script type="text/javascript">
+							$sns_jq(document).ready(function($){
+								$('.topheader-right ul.links li').each(function(){
+									href = String($(this).find('a').attr('href'));
+									if( href.search('customer/account/login') != -1 ){
+										$(this).addClass('login'); $(this).removeClass('last');
+										$(this).find('a').attr('data-toggle', 'modal');
+										$(this).find('a').attr('href', '#modal_login');
+									}
+								});
+							});
+						</script>
+						<?php endif; ?>
+						</div>
+					</div>
+
+					<?php echo $this->getChildHtml('mini-cart') ?>
+					<?php echo $this->getChildHtml('topSearch') ?>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+<!-- BEGIN: Header -->
+<div id="sns_header" class="wrap">
+    <div class="container">
+        <div class="row-fluid">
+        	<!-- BEGIN: Logo -->
+			<div id="logo" class="span12"><a title="<?php echo $this->getLogoAlt() ?>" href="<?php echo $this->getUrl('') ?>">
+				<?php
+				if(Mage::getStoreConfig('design/header/logo_src')!=''){ ?>
+					<img src="<?php echo $this->getLogoSrc(); ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+				<?php
+				} ?>
+				<span><?php echo $this->getWelcome(); ?></span>
+			</a></div>
+			<!-- END: Logo -->
+        </div>
+    </div>
+</div>
+<!-- END: Header -->
+<!-- BEGIN: Menu -->
+<div id="sns_menu" class="wrap">
+    <div class="container">
+        <div class="row-fluid">
+			<!-- BEGIN: Main Navigation -->
+			<div id="sns_mainnav" class="span12">
+				<?php
+				if($var_snstheme->getParam('menuStyles')=='mega'){
+					echo $this->getChildHtml('megaMenu');
+				}
+				echo $this->getChildHtml('topMenu');
+				?>
+			</div>
+			<!-- END: Main Navigation -->
+        </div>
+    </div>
+</div>
+<!-- END: Menu -->

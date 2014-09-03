@@ -1,0 +1,37 @@
+.block-twitter{position: relative;}
+.block-twitter a.follow-link{
+	position: absolute;
+	top:0px; right: 0px;
+	padding: 3px 10px; border: 1px solid #e8e8e8;
+}
+#sns_twitter ul{
+	margin: 0 0; list-style: none;
+}
+#sns_twitter ul li{ margin: 15px 0 0; padding: 15px 0 0; border-top: 1px solid #e8e8e8 ;
+	float: left;width: 100%; display: block;
+}
+#sns_twitter ul li:first-child{border-top: none; margin: 0 0; padding: 0 0;}
+#sns_twitter .user{margin: 0 0 8px 0;}
+#sns_twitter .user span span{
+	font-weight: bold;
+}
+#sns_twitter .tweet {margin: 0 0 8px 0;}
+#sns_twitter .tweet a{color: #73939E}
+#sns_twitter .timePosted{color: #aaa; float: left; margin: 0 0;}
+#sns_twitter .interact{float: right; margin: 0 0}
+#sns_twitter .interact a{ display: inline-block;
+	background: url("../images/icon.png") no-repeat left top; text-indent: -999em; margin: 0 0 0 7px;
+}
+#sns_twitter .interact a.twitter_reply_icon{
+	width: 18px; height: 13px;
+}
+#sns_twitter .interact a.twitter_retweet_icon{
+	width: 21px; height: 12px; background-position: 0 -18px;
+}
+#sns_twitter .interact a.twitter_fav_icon{
+	width: 16px; height: 15px; background-position: 0 -36px; position: relative; top: -2px;
+}
+#sns_twitter.no-avartar .user img{display: none;}
+#sns_twitter.no-followlink a.follow-link{display: none;}
+#sns_twitter.no-date .timePosted{display: none;}
+#sns_twitter.no-interactlink .interact a{display: none;}

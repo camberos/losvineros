@@ -1,0 +1,11 @@
+#sns_topheader .topheader-right .topheader-right-inner #search_mini_form .form-search,
+.sns-ajaxcart .block-content,
+
+ul.mainnav > li > ul[class*="level"],
+.sns-megamenu-wrap.horizontal-menu .mega-nav li.level0 .mega-content-wrap{
+	visibility: visible;
+	-webkit-transform:scale(0);
+}
+
+#sns_content .sns-tabs .tabs-navi li a{-webkit-transition:none;}
+.sns-ajaxcart .block-content .block-inner .mini-products-list .item .product-details-bottom .quantity-container .quantity-controls input{top: 0px}

@@ -1,0 +1,65 @@
+<?php
+echo $this->getLayout()->createBlock('cms/block')->setBlockId('position-7')->toHtml();
+echo $this->getLayout()->createBlock('cms/block')->setBlockId('position-77')->toHtml();
+echo $this->getLayout()->createBlock('cms/block')->setBlockId('position-777')->toHtml();
+?>
+<?php
+if (null == Mage::registry('sns.jquery')){
+    Mage::register('sns.jquery', 1);
+    return 'sns/slider/js/jquery-1.7.2.min.js';
+}
+if (null == Mage::registry('sns.jquerynoconflict')){
+    Mage::register('sns.jquerynoconflict', 1);
+    return 'sns/slider/js/sns.noconflict.js';
+}
+if (null == Mage::registry('sns.caroufredsel')){
+    Mage::register('sns.caroufredsel', 1); ?>
+    <script type="text/javascript" src="<?php echo $this->getSkinUrl('assets/plg_caroufredsel/jquery.carouFredSel-6.2.1-packed.js') ?>"></script>
+<?php
+}
+if (null == Mage::registry('sns.mousewheel')){
+    Mage::register('sns.mousewheel', 1); ?>
+    <script type="text/javascript" src="<?php echo $this->getSkinUrl('assets/plg_caroufredsel/jquery.mousewheel.min.js') ?>"></script>
+<?php
+}
+if (null == Mage::registry('sns.touchswipe')){
+    Mage::register('sns.touchswipe', 1); ?>
+    <script type="text/javascript" src="<?php echo $this->getSkinUrl('assets/plg_caroufredsel/jquery.touchSwipe.min.js') ?>"></script>
+<?php
+}
+if (null == Mage::registry('sns.transit')){
+    Mage::register('sns.transit', 1); ?>
+    <script type="text/javascript" src="<?php echo $this->getSkinUrl('assets/plg_caroufredsel/jquery.transit.min.js') ?>"></script>
+<?php
+} ?>
+<script type="text/javascript">
+//<![CDATA[
+    $sns_jq(document).ready(function(){
+        $sns_jq('#sns_brand ul').carouFredSel({
+            responsive: true,
+            width: '100%',
+            scroll: {
+                items:1,
+                duration:800
+            },
+
+            items: {
+            //  height: '30%',  //  optionally resize item-height
+                width  : '180',
+                visible: {
+                    min: 1,
+                    max: 4
+                }
+            },
+            /*mousewheel: true,
+            swipe: {
+                onMouse: true,
+                onTouch: true
+            },*/
+            prev: '#sns_brand .prev',
+            next: '#sns_brand  .next',
+            auto: false
+        });
+    });
+//]]>
+</script>

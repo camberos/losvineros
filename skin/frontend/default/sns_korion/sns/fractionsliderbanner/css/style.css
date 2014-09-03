@@ -1,0 +1,107 @@
+/* SLIDER STYLES */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Source Code Pro Bold'), local('SourceCodePro-Bold'), url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v3/leqv3v-yTsJNC7nFznSMqVkQc6VGVFSmCnC_l7QZG60.woff) format('woff');
+}
+.sns-slideshow-wrap{
+	position:relative;
+	overflow:hidden;
+	margin:0 auto;
+	max-height: 450px;
+}
+.sns-slideshow-wrap .slider{
+	position:relative;
+	margin:0 auto;
+	background:url("../images/slideshow-bg.jpg") no-repeat center top;
+}
+.sns-slideshow-wrap .next,
+.sns-slideshow-wrap .prev {
+    background: url("../images/fs.prevnext.png") no-repeat left top;
+    left: 7px; top: 50%; margin-top: -22px;
+    height: 44px; width: 44px; z-index: 100;
+    cursor: pointer; position: absolute; display: none;
+}
+.sns-slideshow-wrap:hover .next,
+.sns-slideshow-wrap:hover .prev{display: block;}
+
+.sns-slideshow-wrap .prev:hover{background-position: -55px top;
+	background-image: url("../images/fs.prevnext.png");
+}
+.sns-slideshow-wrap .next{right: 7px; left: auto;
+	background-position: -165px top;background-image: url("../images/fs.prevnext.png");
+}
+.sns-slideshow-wrap .next:hover{background-position: -110px top;
+	background-image: url("../images/fs.prevnext.png");
+}
+
+.fs-pager-wrapper a, .fs-custom-pager-wrapper a{
+	background:url("../images/fs.pager.png") no-repeat scroll 0 -14px;
+}
+.fs-pager-wrapper .active, .fs-custom-pager-wrapper .active {
+    background: url("../images/fs.pager.png") no-repeat scroll 0 0;
+}
+@media only screen and (min-width: 1000px){
+	.sns-slideshow-wrap .slider{
+		/*width:1000px;*/
+	}
+}
+
+@media only screen and (min-width: 1440px){
+	.sns-slideshow-wrap .slider{
+		/*width:1440px;*/
+	}
+}
+
+/* ELEMENT STYLES */
+
+.sns-slideshow-wrap p{
+	position:absolute;
+	top:-200px;
+	z-index:8000;
+	padding:0 0; margin: 0 0;
+	font-size:14px;
+	line-height:100%;
+	color:#fff;
+}
+.sns-slideshow-wrap .claim{
+	font-family: 'Source Code Pro';
+	line-height:26px;
+	font-size:40px;
+	text-transform: uppercase; font-weight: bold; color: #666;
+}
+.sns-slideshow-wrap .subclaim{
+	font-family: 'Source Code Pro';
+	line-height:26px;
+	font-size:60px;
+	text-transform: uppercase; font-weight: bold; color: #666;
+}
+@media (min-width: 768px){
+	.sns-slideshow-wrap .teaser{line-height: 18px !important;}
+}
+.sns-slideshow-wrap .teaser{
+	color: #383737;
+	padding:0;
+	font-size:12px;
+}
+
+.sns-slideshow-wrap .small{
+   width:370px;
+   padding-left:0; padding-right:0px;
+}
+.sns-slideshow-wrap .large{
+   width:575px;
+}
+.sns-slideshow-wrap .buttons-action{
+	display: block; margin-top: 25px;
+}
+.sns-slideshow-wrap .buttons-action .button{
+	padding: 10px 25px; text-transform: uppercase;font-size: 18px; color: #FFF; background: #000;
+}
+.sns-slideshow-wrap .align-left{text-align: left;}
+.sns-slideshow-wrap .align-right{text-align: right;}
+.sns-slideshow-wrap .align-center{text-align: center;}
+
+.fraction-slider .active-slide{z-index: 1}
+.sns-slideshow-wrap .fraction-slider .fs_obj{z-index: 99;}

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Sns_Korion>
+			<version>1.0.0</version>
+			<title>SNSTheme.com</title>
+			<link><![CDATA[http://www.snstheme.com/]]></link>
+		</Sns_Korion>
+	</modules>
+	<global>
+		<helpers>
+		  <korion>
+			<class>Sns_Korion_Helper</class>
+		  </korion>
+		</helpers>
+		<models>
+		  <korion>
+			<class>Sns_Korion_Model</class>
+		  </korion>
+		</models>
+	</global>
+	<adminhtml>
+        <translate>
+            <modules>
+                <Sns_Korion>
+                    <files>
+                        <default>Sns_Korion.csv</default>
+                    </files>
+                </Sns_Korion>
+            </modules>
+        </translate>
+	</adminhtml>
+ 	<default>
+		<korion_cfg module="korion">
+			<general>
+				<showCpanel>1</showCpanel>
+				<scrollToTop>1</scrollToTop>
+				<showTooltip>0</showTooltip>
+				<themeColor>light-blue</themeColor>
+				<layoutType>1</layoutType>
+				<bodyBgColor>#FFFFFF</bodyBgColor>
+				<fontSize>12px</fontSize>
+				<fontFamily>arial</fontFamily>
+				<menuStyles>1</menuStyles>
+				<keepMenu>0</keepMenu>
+				<resMenu>sidebar</resMenu>
+				<googleFont>Open+Sans:400,300,600,700,800</googleFont>
+				<googleFontTargets>.page-title, .page-head, ul.mainnav > li > a span, .megamenu-col.have-spetitle > .mega-title, .block .block-title, .block-shoppolicy .item label, input[type="button"], .button, button, #bottom-cfbox .btn, .price-box .price, .products-grid .item-title a, .item-box-hover ul.add-to-links li a, .item-box-hover .btn-cart, .toolbar label, .toolbar .pages > strong, .sns-slider .title-slider, .product-name, addto-emailto-link, .sns-product-detail h1.product-name, .sns-tab-navi li, #product-shop .email-friend a, .add-to-links li a, .add-to-cart label, .postWrapper .postTitle.cmt-heading, #postComment h4.legend</googleFontTargets>
+				<use_bgoverlay>1</use_bgoverlay>
+			</general>
+			<productlisting>
+				<heightItemInfo>70</heightItemInfo>
+			</productlisting>
+		</korion_cfg>
+	</default>
+</config>

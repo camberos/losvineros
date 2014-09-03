@@ -1,0 +1,21 @@
+<script type="text/javascript">
+//<![CDATA[
+	window.removeItem=function(args){
+		if (ajax_for_compare && (args.search('catalog/product_compare/remove') != -1) ){
+			opener.deletePCompare=1;
+			if(winFocus){
+				opener.isCPPage=1;
+				opener.deletePCompare=1;
+				opener.focus();
+				opener.callAjax(args,'url');
+				exit;
+			}
+			else
+				callAjax(args,'url');
+		}
+        else{
+            window.location.href = args;
+        }
+	};
+//]]>
+</script>

@@ -1,0 +1,130 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Shoping cart sidebar
+ *
+ * @see Mage_Checkout_Block_Cart_Sidebar
+ */
+
+?>
+<?php
+$config = $this->getData();
+?>
+<?php if ($config['mini_cart_display'] && $this->getIsNeedToDisplaySideBar()):
+if($config['list_type']=='all'){
+	$_items = $this->getItems();
+}else{
+	$_items = $this->getRecentItems();
+}?>
+<?php $uq = uniqid('_uq'); ?>
+<script type="text/javascript">
+//<![CDATA[
+ 	minicart = new miniCartForm('minicart-form<?php echo $uq ?>', '', '<?php echo $this->getUrl('checkout/cart/updatePost') ?>');
+//]]>
+</script>
+<?php $_cartQty = $this->getSummaryCount() ?>
+<div class="block mini-cart sns-ajaxcart<?php echo ($_cartQty > 0)?' have-item':''; ?>">
+    <div class="block-title">
+    	<?php if(count($_items)){ ?>
+        <?php /*<strong><span><?php echo $this->__('My Cart') ?></span></strong>*/?>
+        	<a href="javascript:void(0)" class="ico-view"></a>
+		    <?php if ($_cartQty>0){ ?>
+		    <div class="cart-status">
+		    	<span class="label"><?php echo $this->__('Your Cart:') ?></span>
+	            <span class="subtotal">
+	                <?php if ($this->canApplyMsrp()): ?>
+	                    <span class="map-cart-sidebar-total"><?php echo $this->__('ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER'); ?></span>
+	                <?php else: ?>
+	                	<span class="amount"><?php echo $this->__('%s', $_cartQty) ?></span>
+			            <span><?php echo $this->__('item(s)'); ?></span>
+	                    <?php //echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?>
+	                    <?php if ($_subtotalInclTax = $this->getSubtotalInclTax() && 1==0): ?>
+	                        <br />(<?php echo Mage::helper('checkout')->formatPrice($_subtotalInclTax) ?> <?php echo Mage::helper('tax')->getIncExcText(true) ?>)
+	                    <?php endif; ?>
+	                <?php endif; ?>
+	            </span>
+	        </div>
+		    <?php } ?>
+	    <?php }else { ?>
+	            <div class="cart-status">
+	            <span class="label"><?php echo $this->__('Your Cart:') ?></span>
+	            <span class="subtotal">
+	           		<span>0 <?php echo $this->__('item(s)'); ?></span>
+	           		<!--<span><?php //echo $this->__('0.00') ?></span>-->
+	           	</span>
+	           </div>
+	    <?php } ?>
+    </div>
+    <?php if ($_cartQty>0){ ?>
+    <div class="block-content">
+		<div class="block-inner">
+		    <?php if($_cartQty && ($this->isPossibleOnepageCheckout() OR $this->getQuote()->getHasError())): ?>
+		    <?php endif ?>
+		    <?php if(count($_items)){?>
+		        <p class="block-subtitle">
+		        	<?php
+		        	if($config['list_type']=='all'){
+		        	echo $this->__('All added item(s)');
+		        	}else{
+		        	echo $this->__('Recently added item(s)');
+		        	}
+		        	?>
+		        </p>
+		        <?php
+		        $aPost  = Mage::app()->getRequest()->getPost(); //Zend_Debug::dump($aPost);
+		        ?>
+		        <form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post" id="minicart-form<?php echo $uq ?>">
+		        	<input name="form_key" type="hidden" value="<?php echo ($aPost['form_key']!='')?$aPost['form_key']:Mage::getSingleton('core/session')->getFormKey() ?>" />
+			        <ol id="minicart-sidebar" class="mini-products-list">
+			        <?php foreach($_items as $_item): ?>
+			            <?php echo $this->getItemHtml($_item) ?>
+			        <?php endforeach; ?>
+			        </ol>
+		        </form>
+		        <script type="text/javascript">decorateList('minicart-sidebar', 'none-recursive')</script>
+		    <?php } ?>
+	    	<div class="bottom-action actions">
+	    		<a data-original-title="<?php echo $this->__('Update Shopping Cart'); ?>" data-toggle="tooltip" type="button" name="update_cart_action" value="update_qty" onclick="minicart.callAction();"title="<?php echo $this->__('Update Shopping Cart'); ?>" class="button btn-update"><span><?php echo $this->__('Update'); ?></span></a>
+	    		<?php if($_cartQty && ($this->isPossibleOnepageCheckout() OR $this->getQuote()->getHasError())){ ?>
+	    			<a data-original-title="<?php echo $this->__('Checkout') ?>" data-toggle="tooltip" type="button" title="<?php echo $this->__('Checkout') ?>" class="button btn-gocheckout" onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><span><?php echo $this->__('Checkout') ?></span></a>
+	    			<button data-original-title="<?php echo $this->__('Go to cart') ?>" data-toggle="tooltip" type="button" title="<?php echo $this->__('Go to cart') ?>" class="button btn-gotocart" onclick="setLocation('<?php echo Mage::getUrl('checkout/cart/') ?>')"><?php echo $this->__('Go to cart') ?></button>
+			    <?php  } ?>
+	    	</div>
+    	</div>
+    </div>
+    <?php } ?>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+if(!IS_HANDHELD){
+
+}else{
+	$sns_jq('.mini-cart').addClass('handheld');
+}
+//]]>
+</script>
+<?php endif;?>

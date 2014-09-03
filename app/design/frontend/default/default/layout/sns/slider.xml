@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout version="1.0">
+	<default>
+        <reference name="head">
+        	<action method="addCss"><stylesheet>sns/slider/css/slider.css</stylesheet></action>
+        	<action method="addItem"><type>skin_js</type><name helper="slider/data/getJQquery"/><params/><if/></action>
+			<action method="addItem"><type>skin_js</type><name helper="slider/data/getJQqueryNoconflict"/><params/><if/></action>
+			<action method="addItem"><type>skin_js</type><name helper="slider/data/getJSCaroufredsel"/><params/><if/></action>
+			<action method="addItem"><type>skin_js</type><name helper="slider/data/getJSMousewheel"/><params/><if/></action>
+			<action method="addItem"><type>skin_js</type><name helper="slider/data/getJSTouchswipe"/><params/><if/></action>
+			<action method="addItem"><type>skin_js</type><name helper="slider/data/getJSTransit"/><params/><if/></action>
+        </reference>
+    </default>
+	<slider_index_index>
+		<reference name="content">
+			<block type="slider/list" name="slider.list.default">
+			</block>
+		</reference>
+	</slider_index_index>
+</layout>

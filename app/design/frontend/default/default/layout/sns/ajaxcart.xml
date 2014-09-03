@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+    <default>	
+		<reference name="head">
+			<action method="addJs" ifconfig="ajaxcart_cfg/general/enable"><script>varien/product.js</script></action>
+			<action method="addJs" ifconfig="ajaxcart_cfg/general/enable"><script>calendar/calendar.js</script></action>
+			<action method="addJs" ifconfig="ajaxcart_cfg/general/enable"><script>calendar/calendar-setup.js</script></action>
+			<action method="addItem" ifconfig="ajaxcart_cfg/general/enable"><type>skin_js</type><name>js/bundle.js</name></action>
+			<block type="core/template"  name="ajaxcart.head" as="ajaxcart.head">
+				<action ifconfig="ajaxcart_cfg/general/enable" method="setTemplate"><template>sns/ajaxcart/head-script.phtml</template></action>
+			</block>
+			<action method="addCss" ifconfig="ajaxcart_cfg/general/enable"><stylesheet>sns/ajaxcart/css/style.css</stylesheet></action>
+			<action method="addItem"><type>skin_js</type><name helper="ajaxfilter/data/getJQquery"/><params/><if/></action>
+      		<action method="addItem"><type>skin_js</type><name helper="ajaxfilter/data/getJQqueryNoconflict"/><params/><if/></action>
+			<action method="addItem" ifconfig="ajaxcart_cfg/general/enable"><type>skin_js</type><name>sns/ajaxcart/js/sns-ajaxcart.js</name></action>
+		</reference>
+		<reference name="before_body_end">
+			<block type="core/template" name="jsfooter">
+				<action ifconfig="ajaxcart_cfg/general/enable" method="setTemplate"><template>sns/ajaxcart/before-bodyend-script.phtml</template></action>
+			</block>
+		</reference>
+		<!-- 		
+        <reference name="top.links">
+			<block type="ajaxcart/cart_ajaxcart" name="linksajaxcart" template="sns/ajaxcart/checkout/cart/linksajaxcart.phtml">
+				<action method="setData"><name>template_item_renderer</name><value>sns/ajaxcart/checkout/cart/linksajaxcart/default.phtml</value></action>
+				<action method="setData"><name>product_image_width</name><value>80</value></action>
+				<action method="setData"><name>product_image_height</name><value>80</value></action>
+				<action method="createSessionDataByName"><session_name>minicart</session_name></action>
+			</block>
+            <action method="addLinkBlock"><blockName>linksajaxcart</blockName></action>
+            
+        </reference>
+		-->	        
+		<remove name="cart_sidebar"/>
+
+		<reference name="right">
+			<block type="ajaxcart/cart_ajaxcart" name="cart_sidebar_clone" template="sns/ajaxcart/checkout/cart/sidebar.phtml" before="-">
+				<action method="setData"><name>template_item_renderer</name><value>sns/ajaxcart/checkout/cart/sidebar/default.phtml</value></action>
+				<action method="setData"><name>product_image_width</name><value>50</value></action>
+				<action method="setData"><name>product_image_height</name><value>50</value></action>	
+				<action method="createSessionDataByName"><session_name>sidebar</session_name></action>							
+			</block>	
+		</reference>
+		
+		<reference name="content">
+			<block type="ajaxcart/cart_ajaxcart" name="mini-cart" as="mini-cart" before="-">
+				<action method="setData"><name>product_image_width</name><value>100</value></action>
+				<action method="setData"><name>product_image_height</name><value>67</value></action>
+				<action method="setData"><name>product_description_max_length</name><value>100</value></action>
+				<action method="createSessionDataByName"><session_name>minicart</session_name></action>
+			</block>	
+		</reference>	
+
+    </default>
+    
+    <customer_account translate="label">
+    	<remove name="cart_sidebar"/>
+        <reference name="left">
+			<block type="ajaxcart/cart_ajaxcart" name="cart_sidebar_clone" template="sns/ajaxcart/checkout/cart/sidebar.phtml" before="-">
+				<action method="setData"><name>template_item_renderer</name><value>sns/ajaxcart/checkout/cart/sidebar/default.phtml</value></action>
+				<action method="setData"><name>product_image_width</name><value>50</value></action>
+				<action method="setData"><name>product_image_height</name><value>50</value></action>
+				<action method="createSessionDataByName"><session_name>sidebar</session_name></action>	
+			</block>	     	
+		</reference>  
+    </customer_account>  
+    
+    <!--   
+    <ajaxcart_index_index>
+    	<remove name="header"/>
+		<update handle="checkout_cart"/>
+		<reference name="root">
+		    <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+		</reference>
+        <reference name="left">
+            <block type="checkout/cart_sidebar" name="cart_sidebar" template="checkout/cart/sidebar.phtml" after="cart_sidebar_clone">
+                <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <block type="core/text_list" name="cart_sidebar.extra_actions" as="extra_actions"/>
+            </block>
+        </reference>		
+		<reference name="left">
+			<block type="ajaxcart/cart_ajaxcart" name="cart_sidebar_clone" template="sns/ajaxcart/checkout/cart/sidebar.phtml" before="-">
+				<action method="setData"><name>template_item_renderer</name><value>sns/ajaxcart/checkout/cart/sidebar/default.phtml</value></action>
+				<action method="setData"><name>product_image_width</name><value>50</value></action>
+				<action method="setData"><name>product_image_height</name><value>50</value></action>	
+				<action method="createSessionDataByName"><session_name>sidebar</session_name></action>							
+			</block>	
+		</reference>		
+        <reference name="content">
+			<block type="ajaxcart/cart_ajaxcart" name="mini-cart" before="-"/>
+        </reference>
+    </ajaxcart_index_index>
+    -->	
+    <checkout_onepage_index>
+    	<reference name="content">
+    			<remove name="mini-cart"/>
+    	</reference>	
+    </checkout_onepage_index>	
+</layout> 

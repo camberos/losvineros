@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<config>
+	<global>
+		<models>
+			<productlist>
+				<class>Sns_ProductList_Model</class>
+			</productlist>
+		</models>
+		<blocks>
+			<productlist>
+				<class>Sns_ProductList_Block</class>
+			</productlist>
+		</blocks>
+		<helpers>
+			<productlist>
+				<class>Sns_ProductList_Helper</class>
+			</productlist>
+		</helpers>
+		<resources>
+			<productlist_setup>
+				<setup>
+					<module>Sns_ProductList</module>
+				</setup>
+			</productlist_setup>
+		</resources>
+	</global>
+	<frontend>
+		<routers>
+			<productlist>
+				<use>standard</use>
+				<args>
+					<module>Sns_ProductList</module>
+					<frontName>productlist</frontName>
+				</args>
+			</productlist>
+		</routers>
+		<layout>
+			<updates>
+				<productlist module="Sns_ProductList">
+					<file>sns/productlist.xml</file>
+				</productlist>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<Sns_ProductList>
+					<files>
+						<default>Sns_ProductList.csv</default>
+					</files>
+				</Sns_ProductList>
+			</modules>
+		</translate>
+	</frontend>
+	<adminhtml>
+		<translate>
+			<modules>
+				<Sns_ProductList>
+					<files>
+						<default>Sns_ProductList.csv</default>
+					</files>
+				</Sns_ProductList>
+			</modules>
+		</translate>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<productlist_cfg translate="title" module="productlist">
+											<title>SNS Product List Settings</title>
+										</productlist_cfg>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</adminhtml>
+	<default>
+		<productlist_cfg module="productlist">
+			<general>
+				<title>SNS Product List</title>
+			</general>
+			<product_selection>
+				<product_source>catalog</product_source>
+				<product_category></product_category>
+				<product_ids></product_ids>
+				<product_order_by>random</product_order_by>
+				<product_order_dir>ASC</product_order_dir>
+				<num_columns>3</num_columns>
+				<product_limitation>12</product_limitation>
+			</product_selection>
+
+			<product_display_setting>
+				<product_image_disp>1</product_image_disp>
+				<product_image_width>135</product_image_width>
+				<product_image_height></product_image_height>
+
+				<product_title_disp>1</product_title_disp>
+				<product_title_max_length>25</product_title_max_length>
+
+				<product_description_disp>1</product_description_disp>
+				<product_description_src>short_description</product_description_src>
+				<product_description_strip_tags>0</product_description_strip_tags>
+				<product_description_keep_tags></product_description_keep_tags>
+				<product_description_max_length>40</product_description_max_length>
+
+				<product_price_disp>1</product_price_disp>
+				<product_rating_summary>1</product_rating_summary>
+				<product_cart_or_status>1</product_cart_or_status>
+				<product_addtocompare>1</product_addtocompare>
+				<product_addtowishlist>1</product_addtowishlist>
+			</product_display_setting>
+		</productlist_cfg>
+	</default>
+</config>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Sns_Korion>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>1.0.0</version>
+    </Sns_Korion>
+  </modules>
+</config>

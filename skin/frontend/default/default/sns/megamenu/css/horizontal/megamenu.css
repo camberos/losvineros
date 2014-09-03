@@ -1,0 +1,71 @@
+
+.sns-megamenu-wrap.horizontal-menu {
+	margin:0 auto;
+	display:block;
+	position: relative;
+	clear:both;
+	margin:0 0;
+}
+.sns-megamenu-wrap.horizontal-menu .mega-nav li {
+	float:left;
+	text-align:center;
+	position: static;
+	padding:0 0px;
+	border:none;
+}
+.sns-megamenu-wrap.horizontal-menu .mega-nav .mega-content-wrap{
+	margin:0px auto;
+	top:-9999em;
+	position:absolute;
+	text-align:left;
+	z-index:999;
+	border-top: 1px solid #CDCDCD;
+	border-bottom: 4px solid #606060;
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+}
+.sns-megamenu-wrap.horizontal-menu .mega-nav .mega-content-wrap:before{
+	background:#FFF;
+	content: "";
+	border-left: 1px solid #CDCDCD;
+	position: absolute; left: 0px;top: 0px; height: 100%;
+}
+.sns-megamenu-wrap.horizontal-menu .mega-nav .mega-content-wrap:after{
+	background:#FFF;
+	content: "";
+	border-right: 1px solid #dbdbdb;
+	position: absolute; right: 0px; top: 0px; height: 100%;
+}
+.sns-megamenu-wrap.horizontal-menu .mega-nav li:hover .mega-content-wrap{
+	top:40px;
+}
+
+.sns-megamenu-wrap.horizontal-menu .mega-nav li .mega-content-wrap.align-right {
+	left:auto;
+	right:0;
+}
+.megamenu-col .mega-title a.active{}
+.megamenu-col .mega-title span{padding: 3px 0; display: block}
+.megamenu-col.have-spetitle > .mega-title{ font-size: 125%; text-transform: uppercase; padding: 5px 0 8px}
+.megamenu-col.level3 > .mega-title span{ padding: 3px 5px; display: block;}
+.have-icon .menu-title{padding-left: 30px;}
+.menu-description{display: block; font-family: arial, sans-serif; font-size: 10px; text-transform: none; line-height: normal;}
+/*-------------------------------------- Columns Sizes ---------------------------------------- */
+
+.sns-megamenu-wrap.horizontal-menu .mega-nav .megamenu-1col {width: 6.3333%; padding: 0 1%;}
+.sns-megamenu-wrap.horizontal-menu .mega-nav .megamenu-2col {width: 14.6666%; padding: 0 1%;}
+.sns-megamenu-wrap.horizontal-menu .mega-nav .megamenu-3col {width: 23%; padding: 0 1%;}
+.sns-megamenu-wrap.horizontal-menu .mega-nav .megamenu-4col {width: 31.3333%; padding: 0 1%;}
+.sns-megamenu-wrap.horizontal-menu .mega-nav .megamenu-5col {width: 39.6666%; padding: 0 1%;}
+.sns-megamenu-wrap.horizontal-menu .mega-nav .megamenu-6col {width: 48%;padding: 0 1%;}
+.sns-megamenu-wrap.horizontal-menu .mega-nav .megamenu-7col {width: 56.3333%;padding: 0 1%;}
+.sns-megamenu-wrap.horizontal-menu .mega-nav .megamenu-8col {width: 64.6666%;padding: 0 1%;}
+.sns-megamenu-wrap.horizontal-menu .mega-nav .megamenu-9col {width: 73%;padding: 0 1%;}
+.sns-megamenu-wrap.horizontal-menu .mega-nav .megamenu-10col {width: 81.3333%;padding: 0 1%;}
+.sns-megamenu-wrap.horizontal-menu .mega-nav .megamenu-11col {width: 89.6666%;padding: 0 1%;}
+.sns-megamenu-wrap.horizontal-menu .mega-nav .megamenu-12col {width: 98%;padding: 0 1%;}
+
+.sns-megamenu-wrap.horizontal-menu .mega-nav .megamenu-col{
+	background:#FFF;float: left;
+}
+

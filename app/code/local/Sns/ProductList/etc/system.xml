@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <sns>
+            <label>SNSTheme.Com</label>
+            <sort_order>205</sort_order>
+        </sns>
+    </tabs>
+    <sections>
+    	<productlist_cfg translate="label" module="productlist">
+    		<label>SNS Product List</label>
+            <tab>sns</tab>
+			<frontend_type>text</frontend_type>
+            <sort_order>150</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+            	<general translate="label">
+            		<label>General Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+	                	<title translate="label">
+	                		<label>Block Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</title>
+                    </fields>
+	            </general>
+	            
+	            <product_selection translate="label">
+	            	<expanded>1</expanded>
+	            	<label>Filter Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+	            	<fields>
+	            		<product_source translate="label">
+		            		<label>Product Source</label>
+		            		<frontend_type>select</frontend_type>
+		            		<source_model>productlist/system_config_source_productSources</source_model>
+		            		<sort_order>10</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_source>
+						<product_category translate="label">
+		            		<label>Select Category</label>
+		            		<frontend_type>multiselect</frontend_type>
+		            		<source_model>productlist/system_config_source_listCategory</source_model>
+		            		<sort_order>20</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><product_source>catalog</product_source></depends>
+						</product_category>
+						<product_ids translate="label">
+							<label>IDs of Products</label>
+		            		<frontend_type>text</frontend_type>
+		            		<comment>Separator by comma (,). Eg: 1,2,3,4...</comment>
+		            		<sort_order>30</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><product_source>product</product_source></depends>
+						</product_ids>
+		            	<product_order_by translate="label">
+		            		<label>Product Order by</label>
+		            		<frontend_type>select</frontend_type>
+		            		<source_model>productlist/system_config_source_orderBy</source_model>
+		            		<sort_order>40</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><product_source>catalog</product_source></depends>
+						</product_order_by>
+		            	<product_order_dir translate="label">
+		            		<label>Product Order Dir</label>
+		            		<frontend_type>select</frontend_type>
+		            		<source_model>productlist/system_config_source_orderDirection</source_model>
+		            		<sort_order>50</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><product_source>catalog</product_source></depends>
+						</product_order_dir>
+						<num_columns translate="label">
+	                		<label>Number of Columns</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>Number of columns in Grid mode. If this value &lt; 2, list mode is activated.</comment>
+                            <sort_order>55</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</num_columns>
+						<product_limitation translate="label">
+		            		<label>Product Limitation</label>
+		            		<frontend_type>text</frontend_type>
+		            		<sort_order>60</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><product_source>catalog</product_source></depends>
+						</product_limitation>
+	            	</fields>
+	            </product_selection>
+								
+				<product_display_setting translate="label">
+					<label>Display Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<fields>
+						<product_image_heading translate="label">
+							<label>Product image</label>
+		            		<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+		            		<sort_order>10</sort_order>
+		            		<show_in_default>1</show_in_default>
+						</product_image_heading>
+						<product_image_disp translate="label">
+							<label>Display</label>
+		            		<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+		            		<sort_order>20</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_image_disp>
+						<product_image_width translate="label">
+		            		<label>Image Width</label>
+		            		<frontend_type>text</frontend_type>
+		            		<sort_order>30</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_image_width>
+	            		<product_image_height translate="label">
+		            		<label>Image Height</label>
+		            		<frontend_type>text</frontend_type>
+		            		<sort_order>40</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_image_height>
+						
+						<product_title_heading translate="label">
+							<label>Product Title</label>
+		            		<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+		            		<sort_order>50</sort_order>
+		            		<show_in_default>1</show_in_default>
+						</product_title_heading>
+						<product_title_disp translate="label">
+							<label>Display</label>
+		            		<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+		            		<sort_order>60</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_title_disp>
+						<product_title_max_length translate="label">
+							<label>Maximum Title Length</label>
+		            		<frontend_type>text</frontend_type>
+		            		<sort_order>70</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><product_title_disp>1</product_title_disp></depends>
+						</product_title_max_length>
+						
+						<product_description_heading translate="label">
+							<label>Product Description</label>
+		            		<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+		            		<sort_order>80</sort_order>
+		            		<show_in_default>1</show_in_default>
+						</product_description_heading>
+						<product_description_disp translate="label">
+							<label>Display</label>
+		            		<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+		            		<sort_order>90</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_description_disp>
+						<product_description_src translate="label">
+							<label>Source</label>
+		            		<frontend_type>select</frontend_type>
+							<source_model>productlist/system_config_source_descriptionSrc</source_model>
+		            		<sort_order>100</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_description_src>
+						<product_description_strip_tags translate="label">
+							<label>Strip Tags</label>
+		            		<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+		            		<sort_order>110</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_description_strip_tags>
+						<product_description_keep_tags translate="label">
+		            		<label>Keep Tags</label>
+		            		<frontend_type>textarea</frontend_type>
+		            		<comment><![CDATA[If you are using 'Strip html tags'='Yes'. Please enter tagname if you want keep it. Eg: '&lt;p>&lt;a>' for keep p and a]]></comment>
+		            		<sort_order>120</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_description_keep_tags>
+						
+						<product_description_max_length translate="label">
+							<label>Maximum Description Length</label>
+		            		<frontend_type>text</frontend_type>
+		            		<sort_order>130</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_description_max_length>
+						
+						<product_other_infomations_heading translate="label">
+							<label>Others</label>
+		            		<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+		            		<sort_order>140</sort_order>
+		            		<show_in_default>1</show_in_default>
+						</product_other_infomations_heading>
+						<product_price_disp translate="label">
+							<label>Display Prices</label>
+		            		<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+		            		<sort_order>150</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_price_disp>
+						<product_rating_summary translate="label">
+							<label>Display Rating Summary</label>
+		            		<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+		            		<sort_order>160</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_rating_summary>
+						<product_cart_or_status translate="label">
+							<label>Display Add to Cart or Status</label>
+		            		<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+		            		<sort_order>170</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_cart_or_status>
+						<product_addtocompare>
+							<label>Display Add to Compare</label>
+		            		<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+		            		<sort_order>190</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_addtocompare>
+						<product_addtowishlist>
+							<label>Display Add to Wishlist</label>
+		            		<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+		            		<sort_order>180</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_addtowishlist>
+					</fields>
+				</product_display_setting>
+            </groups>
+    	</productlist_cfg>
+    </sections>
+</config>

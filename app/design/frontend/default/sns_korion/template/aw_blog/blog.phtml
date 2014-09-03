@@ -1,0 +1,63 @@
+<div class="page-title">
+    <h1><?php echo $this->__('Blog'); ?></h1>
+</div>
+<?php $posts = $this->getPosts(); ?>
+<div id="messages_product_view">
+    <?php Mage::app()->getLayout()->getMessagesBlock()->setMessages(Mage::getSingleton('customer/session')->getMessages(true)); ?> 
+    <?php echo Mage::app()->getLayout()->getMessagesBlock()->getGroupedHtml(); ?> 
+</div>
+
+ <?php //echo $this->getChildHtml('aw_blog_comments_toolbar'); ?>
+<?php foreach ($posts as $post): ?>
+    <div class="postWrapper">
+        <div class="post-h-info">
+            <div class="date">
+                <?php
+                $_ct= new Zend_Date($post->getCreatedTime());
+                ?>
+                <span class="month"><?php echo $_ct->toString('MMM'); ?></span>
+                <span class="day"><?php echo $_ct->toString('dd'); ?></span>
+                
+                <span class="year"><?php echo $_ct->toString('y'); ?></span>
+            </div>
+            <div class="author">
+                <label><?php echo $this->__("Post By"); ?></label>
+                <span><?php echo $post->getUser(); ?></span>
+            </div>
+            <?php if ($this->getCommentsEnabled()): ?>
+            <div class="cmt">
+                <?php echo $post->getCommentCount(); ?> <a href="<?php echo $post->getAddress(); ?>#commentBox" >Comments</a>
+            </div>
+            <?php endif; ?>
+        </div>
+        <div class="content-inner">
+            <div class="postTitle">
+                <h2><a href="<?php echo $post->getAddress(); ?>" ><?php echo $post->getTitle(); ?></a></h2>
+            </div>
+
+            <div class="postContent clearfix"><?php echo $post->getPostContent(); ?></div>
+
+            <?php echo $this->getBookmarkHtml($post) ?>
+        </div>
+        <div class="post-info clearfix">
+            <?php if($this->getTagsHtml($post)):?>
+            <div class="tags"><?php echo $this->getTagsHtml($post) ?></div>
+            <?php endif; ?>
+            <div class="postDetails">
+                <?php $postCats = $post->getCats(); ?>
+                <?php if (!empty($postCats)): ?>
+                    <h4><?php echo Mage::helper('blog')->__('Posted in:'); ?></h4>
+                    <?php foreach ($postCats as $data): ?>
+                        <a href="<?php echo $data['url']; ?>"><?php echo $data['title']; ?></a> 
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <?php echo Mage::helper('blog')->__('Posted'); ?>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+<div class="blog-toolbar">
+ <?php echo $this->getChildHtml('aw_blog_comments_toolbar'); ?>
+<?php //$this->getPages(); ?>
+</div>

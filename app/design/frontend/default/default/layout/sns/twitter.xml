@@ -1,0 +1,17 @@
+<?xml version="1.0"?>   
+<layout version="1.0">
+	<default>
+        <reference name="head">
+        	<action method="addCss"><stylesheet>sns/twitter/css/style.css</stylesheet></action>
+        	<action method="addItem"><type>skin_js</type><name helper="twitter/data/getJQquery"/><params/><if/></action>
+			<action method="addItem"><type>skin_js</type><name helper="twitter/data/getJQqueryNoconflict"/><params/><if/></action>
+			<action method="addItem"><type>skin_js</type><name helper="twitter/data/getJSTwitterFetcher"/><params/><if/></action>
+        </reference>
+    </default>
+	<twitter_index_index>
+		<reference name="content">
+			<block type="twitter/list" name="twitter.list.default"></block>
+		</reference>
+	</twitter_index_index>	
+</layout>   
+	

@@ -1,0 +1,78 @@
+<?php
+/*------------------------------------------------------------------------
+ # SNS Productlist - Version 1.0
+ * Copyright (C) 2013 The SNS Theme. All Rights Reserved.
+ * @license - GNU/GPL, http://www.gnu.org/licenses/gpl.html
+ * Author: SNS Theme
+ * Websites: http://www.snstheme.com
+-------------------------------------------------------------------------*/
+
+
+$_productCollection = $this->getLoadedProductCollection();
+$_helper = $this->helper('catalog/output');
+$imgWidth = $this->product_image_width;
+$imgHeight = $this->product_image_height;
+if ($imgWidth <= 0 || $imgHeight <= 0){
+    $this->product_image_disp = false;
+}
+?>
+
+<div class="block sns-productlist">
+    <?php if ($this->title): ?>
+    <div class="block-title"><?php echo $this->title; ?></div>
+    <?php endif; ?>
+    <div class="block-content">
+        <?php if(!$_productCollection->count()): ?>
+            <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+        <?php else: ?>
+        <ul class="products-grid clearfix">
+        <?php $i = 0;
+        foreach($_productCollection as $_product){?>
+        <?php
+        $now = date("Y-m-d");
+        $newsFrom= substr($_product->getData('news_from_date'),0,10);
+        $newsTo=  substr($_product->getData('news_to_date'),0,10);
+        $specialprice = Mage::getModel('catalog/product')->load($_product->getId())->getSpecialPrice();
+        $class = '';
+        if($now>=$newsFrom && $now<=$newsTo) $class .= ' have-iconew';
+        if($specialprice) $class .= ' have-icosale';
+        ?>
+        <li class="item span12<?php echo ($i == 0)?' first':''; $i++; ?>">
+            <div class="item-img<?php echo $class; ?><?php echo (count(Mage::getModel('catalog/product')->load($_product->getId())->getMediaGalleryImages()) > 0)?' have-additional':'';?>">
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                    <span class="img-main">
+                        <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgWidth, $imgHeight); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
+                    </span>
+                </a>
+            </div>
+            <div class="item-info">
+                <?php if( $this->product_title_disp == 1 ){?>
+                    <div class="item-title">
+                        <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
+                        <?php
+                            if ( $this->product_title_max_length > 0){
+                                $_productNameTruncated = Mage::helper('core/string')->truncate($_productNameStripped, $this->product_title_max_length);
+                            }
+                        ?>
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo isset($_productNameTruncated) ? $_productNameTruncated : $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a>
+                    </div>
+                <?php }?>
+                <?php if( $this->product_price_disp ){ ?>
+                    <div class="item-price">
+                        <?php echo $this->getPriceHtml($_product, fasle, rand().time()) ?>
+                    </div>
+                <?php }?>
+                <?php if( $this->product_rating_summary == 1 ){ ?>
+                    <div class="rating">
+                    <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
+                    </div>
+                <?php } ?>
+            </div>
+
+
+        </li>
+    <?php }?>
+    </ul>
+    <?php endif; ?>
+    </div>
+</div>

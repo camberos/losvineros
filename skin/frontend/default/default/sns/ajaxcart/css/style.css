@@ -1,0 +1,215 @@
+#sns_ajaxwrap{
+    display:none;
+    width: 100%; height: 100%;
+}
+#sns_ajaxinner{
+    width: 360px;
+    margin: 0 0 0 -180px;
+    z-index: 10002;
+    position: fixed;
+    left: 50%;
+    padding: 0px;
+    background-color: #2564c0;
+    display: block;
+    visibility: visible;
+}
+#ajax_process {
+    position: absolute;
+    left: 50%;
+    padding: 15px 0 10px;
+    width: 180px;
+    background: #000;
+    margin: -15px 0 0 -90px;
+    text-align:center;
+    box-shadow: 0 0 5px #000;
+    -moz-box-shadow: 0 0 5px #000;
+    -webkit-box-shadow: 0 0 5px #000;
+    -o-box-shadow: 0 0 5px #000;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70); /* IE8 */
+}
+#ajax_process div{ margin-top: 8px; color: #FFF}
+#ajax_overlay {
+	display: none; padding: 0px;
+    position: fixed; left: 0px; top: 0px;
+    width: 100%; height: 100%;
+    z-index: 9000; visibility: visible;
+	background-color: #000;opacity: 0.2; filter:alpha(opacity=20);
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20); /* IE8 */
+}
+#sns_ajaxbox{
+    width: 100%;
+    display: block;
+}
+#btn-close {
+    background: none;
+    display: block;
+    cursor: pointer;
+    height: 25px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 25px;
+    z-index: 1103;
+}
+#confirmbox{
+    background-color: #FFF;
+    padding: 10px 15px 20px;
+    position:relative;
+    z-index:1000;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    /*border-radius: 6px 6px;
+    -moz-border-radius: 6px 6px;
+    -webkit-border-radius: 6px 6px;
+    -o-border-radius: 6px 6px;*/
+}
+#confirmbox p span{
+    font-weight: bold;
+}
+
+#confirmbox .head-cfbox { text-align: center; margin-bottom:10px; padding-right: 20px; }
+#confirmbox .cf-producinfo{ float:left; text-align:left; padding-top: 10px;}
+#confirmbox .cf-producinfo .product-image{float: left; margin-right: 10px; border: 1px solid #CCC;}
+#confirmbox .cf-producinfo .product-name{margin-top: 0px; line-height: normal;}
+#confirmbox .cf-moreinfo { clear:both; padding-top:10px; }
+#confirmbox .cf-moreinfo .cf-label{vertical-align: middle;margin-right: 5px;}
+#confirmbox .cf-moreinfo .ratings{
+    display: inline-block;
+    vertical-align: middle;
+}
+#confirmbox .cf-moreinfo .ratings .amount{margin-left: 5px;}
+#confirmbox .cf-moreinfo .price-box{display: inline-block;}
+#confirmbox .more-text{text-align: center; padding-top: 10px;}
+#confirmbox #bottom-cfbox{
+    text-align:center;
+    margin-top:10px;
+}
+#confirmbox #bottom-cfbox ul {
+    list-style: none; margin: 0 0;
+}
+#confirmbox #bottom-cfbox ul li {
+    display: inline;
+}
+#confirmbox #bottom-cfbox ul li:first-child {
+    margin-right: 15px;
+}
+#confirmbox .product-name *{font-size: 150%; line-height: 20px; font-weight: normal; margin: 0 0 10px; padding: 0 15px 0 0}
+
+#confirmbox #bottom-cfbox .btn{
+    background: #3A3A3A;
+    border: medium none;
+    border-radius: 0 0 0 0;
+    text-shadow: none;
+    -moz-text-shadow: none;
+    -webkit-text-shadow: none;
+    -o-text-shadow: none;
+    -moz-border-radius: 0 0 0 0;
+    -webkit-border-radius: 0 0 0 0;
+    -o-border-radius: 0 0 0 0;
+    color: #FFFFFF;
+    font-size: 100%;
+    padding: 7px 15px;
+}
+#confirmbox #bottom-cfbox .btn:hover{background: #000;}
+#confirmbox form{margin: 0 0;}
+#confirmbox form .add-to-cart{margin: 0 0; border: none; padding-bottom: 0px;}
+#confirmbox .data-table input.input-text{max-width: 40px; text-align: center;}
+.mini-cart { margin: 15px 0 0; position: relative; display: inline-block;}
+.mini-cart .block-title {
+    font-family: inherit !important;
+    background:#CCC url("../images/ico-minicart.png") no-repeat 6px center;
+    padding: 0 0 0 34px !important;
+    display: inline-block;
+    height:38px;
+    border:none;
+    float: right;
+}
+.mini-cart .block-title *{
+    font-size: 12px;
+    text-transform: none;
+}
+.mini-cart .block-title .ico-view{
+    position: absolute;
+    right: 0px;
+    background: url(../images/ico-drop.png) no-repeat 4px center;
+    width: 18px;
+    height:100%;
+}
+.mini-cart .block-title .cart-status{
+    margin-left: 8px; padding-right: 20px;
+}
+.mini-cart .block-title .cart-status.empty{line-height: 38px;}
+.mini-cart .block-title .cart-status .amount,
+.mini-cart .block-title .cart-status .subtotal{
+    display: block;
+    line-height: normal;
+}
+.mini-cart .block-title .cart-status .amount{
+    margin: 3px 0 1px;
+}
+.mini-cart .block-title .cart-status .label{
+    margin: 0 0; padding: 0 0;
+}
+.mini-cart .block-subtitle{
+    padding: 10px 10px; margin: 0 0;
+}
+.mini-cart .block-content {
+    width: 360px;
+    background: #FFF;
+    border: 1px solid #CCC;
+    position:absolute;
+    z-index:20;
+    overflow:hidden !important;
+    top:38px; right:0px;
+}
+.mini-cart .block-content .product-image{
+    float: left;
+    margin: 0 10px 0 0;
+}
+.mini-cart .block-content .product-name{font-weight: bold;}
+.mini-cart .block-content .actions{
+    padding: 8px 8px;
+    background:#efefef;
+}
+.mini-cart .block-content .actions .title{
+    font-weight: bold;
+    display: inline-block;
+    float: left;
+    text-transform: uppercase;
+}
+.mini-cart .block-content .actions .subtotal{
+    display: inline-block;
+    float: right;
+    text-transform: uppercase;
+}
+.mini-cart .block-content .actions .btn-update{
+    float: right;
+}
+.mini-cart .block-content form{
+    margin: 0 0;
+    max-height: 500px; overflow-y: auto;
+}
+.mini-cart .block-content ol{
+    margin: 0 10px;
+    list-style: none;
+}
+.mini-cart .block-content ol li{padding: 0 0 8px;}
+.mini-cart .block-content form p{margin: 0 0}
+.mini-cart .block-content .product-details-bottom input.qty{
+    width: 32px; padding: 0 0; text-align: center; margin: 0 0;
+}
+.mini-cart .block-content .product-details-bottom .quantity-controls input{
+    padding: 1px 5px
+}
+.mini-cart .block-content .rating-container{
+    margin: 4px 0 0;
+}
+.mini-cart .block-content .rating-container .ratings{
+    display: inline-block; vertical-align: middle;
+}
+.mini-cart .block-content .rating-container .ratings .amount{margin-left: 5px;}
+.mini-cart .block-content .item-options{margin: 0 0;}
+.mini-cart .block-content .item-options dt{float: left; margin-right: 5px;}
+.mini-cart .block-content .item-options dd{margin: 0 0;}

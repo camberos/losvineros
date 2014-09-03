@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<layout version="1.0">
+	<default>
+        <reference name="head">
+			<action method="addCss"><stylesheet>sns/fractionsliderbanner/css/fractionslider.css</stylesheet></action>
+			<action method="addCss"><stylesheet>sns/fractionsliderbanner/css/style.css</stylesheet></action>
+			<action method="addItem"><type>skin_js</type><name helper="fractionsliderbanner/data/getJQquery"/><params/><if/></action>
+			<action method="addItem"><type>skin_js</type><name helper="fractionsliderbanner/data/getJQqueryNoconflict"/><params/><if/></action>
+			<action method="addItem"><type>skin_js</type><name helper="fractionsliderbanner/data/getJSFractionSlider"/><params/><if/></action>
+		</reference>
+    </default>
+	<slideshow_index_index>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+		</reference>
+        <reference name="head">
+			<action method="addCss"><stylesheet>sns/fractionsliderbanner/css/fractionslider.css</stylesheet></action>
+			<action method="addCss"><stylesheet>sns/fractionsliderbanner/css/style.css</stylesheet></action>
+        </reference>
+		<reference name="fractionsliderbanner">
+			<block type="fractionsliderbanner/list" name="fractionsliderbanner.list">
+			</block>
+		</reference>
+	</slideshow_index_index>
+</layout>

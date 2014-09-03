@@ -1,0 +1,173 @@
+#sns_cpanel {
+    background:#FFF;
+	border:1px solid #CCC;
+	border-bottom: 5px solid #CCC;
+	border-left:none;
+    color: #555;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+    padding:0 0 15px;
+    position: fixed;
+    top: 140px;
+    width: 310px;
+    z-index: 999;
+	left:-311px;
+}
+#sns_cpanel option,
+#sns_cpanel optgroup,
+#sns_cpanel input,
+#sns_cpanel select{
+	background:none;
+	color:#333;
+	margin-bottom: 0px;
+}
+#sns_cpanel input.inputbox{
+	border-radius: 0 0 0 0 !important;
+    box-shadow: none !important;
+    font-size: 11px !important;
+    margin: 0 3px 0 0 !important;
+    padding: 0 3px !important;
+    width: 80px !important;
+}
+.store-switcher select{padding: 2px; width: 110px; height: 24px; line-height: normal;}
+.store-switcher	label{float: left; margin: 0 8px 0 0;}
+select.cp_select{
+	font-size: 11px;
+    height: 24px;
+    line-height: normal;
+    padding: 2px;
+    width: 75px;
+	border-radius:0px;
+	color:#333;
+}
+.cpanel-head{
+	font-size:14px;
+	font-weight:bold;
+	text-transform:uppercase;
+	padding:10px 15px 5px;
+	background: #f5f5f5;
+	border-bottom:1px solid #CCC;
+}
+.themecolor-heading{
+	padding: 5px 0;
+	display:block;
+}
+.cpanel-set,
+.cpanel-reset,
+.cpanel-themecolor {margin: 0 15px}
+
+.cpanel-themecolor .themeColor.active{border: 2px solid gray; width: 37px; height: 31px;}
+.cpanel-themecolor .themeColor{
+	background-color:#CCC;
+	width:41px;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	float:left;
+	margin:0 5px 5px 0;
+	cursor:pointer;
+	overflow: hidden;text-indent: 100%;white-space: nowrap;
+}
+.cpanel-themecolor .themeColor:hover{opacity: 0.7;}
+.cpanel-themecolor .themeColor.yellow{background-color:#C09E42;}
+.cpanel-themecolor .themeColor.pink{background-color:#F78181;}
+.cpanel-themecolor .themeColor.red{background-color:#FD2527;}
+.cpanel-themecolor .themeColor.green{background-color:#38BC28;}
+.cpanel-themecolor .themeColor.blue{background-color:#6495ED;}
+.cpanel-themecolor .themeColor.blueviolet{background-color:#694f63;}
+.cpanel-themecolor .themeColor.brown{background-color:#9D7446;}
+.cpanel-themecolor .themeColor.brownred{background-color:#725224;}
+.cpanel-themecolor .themeColor.purple{background-color:#a544ff;}
+.cpanel-themecolor .themeColor.orange{background-color:#d37121;}
+.cpanel-themecolor .themeColor.violet{background-color:#c73e86;}
+.cpanel-themecolor .themeColor.black{background-color:#000;}
+.cpanel-themecolor .themeColor.cyan{background-color:#19BD9B;	}
+.cpanel-themecolor .themeColor.maroon{background-color:#95162d;	}
+.cpanel-themecolor .themeColor.darkcyan{background-color:#000f15;	}
+
+.cpanel-set{
+	margin-bottom: 20px;
+}
+.accordion-group{
+	border:none;
+	border-bottom:1px solid #CCC;
+	border-radius:0;
+}
+.accordion-heading a{
+	display: block;
+	padding:3px 0px;
+	color:#555 !important;
+	font-weight:bold;
+	text-decoration: none;
+}
+.cp-item{
+	float:left;
+	margin: 0 15px 0 0;
+}
+.cp-item.body-background-image{
+	width:100%;
+}
+
+.accordion-inner{
+	padding:0px 0 15px;
+	border:none;
+}
+
+.cp-item .pattern{
+	height: 20px;
+    margin: 0 3px 0 0;
+    width: 30px;
+	border:1px solid #CCC;
+	float:left;
+	cursor:pointer;
+	text-indent:-999em;
+	background-color: #ddd;
+}
+.cp-item .pattern:hover{background-color: #ccc; border-color:  #ad2323;}
+.cp-item .pattern.active{border-color:#ad2323;}
+
+#sns_cpanel a.reset{
+	margin:0 0;
+	color:#000;
+}
+
+.cpanel-input{
+	padding:1px 5px !important;
+	width:30px;
+	font-size:11px !important;
+}
+.cpanel-select{
+	height: auto;
+    padding: 2px !important;
+	font-size:11px !important;
+}
+#sns_magic_btn{
+	background:#FFF;
+	width:14px;
+	border:1px solid #CCC;
+	border-left:none;
+	position:absolute;
+	right:-39px;
+	top:80px;
+	padding:8px 12px;
+	cursor:pointer;
+	-webkit-transition: all 0.2s ease-out 0s;
+    -moz-transition: all 0.2s ease-out 0s;
+    -o-transition: all 0.2s ease-out 0s;
+    transition: all 0.2s ease-out 0s;
+}
+#sns_magic_btn:hover{border-color:#999;}
+#sns_magic_btn i{
+	vertical-align:top;
+	font-size: 20px;
+	position: relative;
+	top:3px; left: -2px;
+}
+#sns_magic_btn:hover i{
+	color: #000;
+}
+#sns_cpanel .cpanel-reset .btn{
+	font-size:100%;
+	text-transform: uppercase;
+	padding:4px 15px;
+}

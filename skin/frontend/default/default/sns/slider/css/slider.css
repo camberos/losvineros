@@ -1,0 +1,28 @@
+.sns-slider{padding: 0 0;}
+.sns-slider .slider-inner{position: relative; clear: both}
+.sns-slider .item{display: inline-block;float:left;margin: 0 10px;}
+.sns-slider .timer {
+    background: #CCC;
+    height: 2px;
+    width: 0;
+}
+.title-slider{
+	font-size: 125%;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.sns-slider .navigation{position: absolute; top: 0px; right: 0px; margin: 0 0;list-style: none;width: 80px}
+.sns-slider .prev,
+.sns-slider .next{
+	float: left; margin: 0 0 0 5px; display: inline-block;
+	width: 30px;
+	background:#CCC;
+	height: 25px;
+	cursor: pointer;
+	text-align: center;
+}
+.sns-slider .prev i,
+.sns-slider .next i{
+	position: relative;top: 3px;
+}
+.sns-slider ul.container-slider{margin: 20px 0}

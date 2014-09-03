@@ -1,0 +1,275 @@
+<?php global $var_snstheme;
+// Include cpanel
+if( 1==1/*$var_snstheme->getParam('showCpanel')*/ ) {
+?>
+<div id="sns_cpanel" style="direction:ltr">
+    <div class="cpanel-head">CPanel</div>
+    <!---<div class="cpanel-themecolor">
+        <span class="themecolor-heading">Select color skins</span>
+        <div class="inner clearfix">
+            <?php $themecolor = $var_snstheme->getParam('themeColor'); ?>
+            <span title="Cyan" class="themeColor cyan<?php echo ($themecolor=='cyan')?' active':'';?>">Cyan</span>
+            <span title="Blue" class="themeColor blue<?php echo ($themecolor=='blue')?' active':'';?>">Blue</span>
+            <span title="Green" class="themeColor green<?php echo ($themecolor=='green')?' active':'';?>">Green</span>
+            <span title="Orange" class="themeColor orange<?php echo ($themecolor=='orange')?' active':'';?>">Orange</span>
+            <span title="Red" class="themeColor red<?php echo ($themecolor=='red')?' active':'';?>">Red</span>
+        </div>
+    </div>-->
+    <div class="cpanel-set">
+        <!-- Multi store -->
+        <?php
+        if($this->getChildHtml('store_switcher')): ?>
+        <div class="accordion-group">
+            <div class="accordion-heading" id="sns_cpanelaccordionfirst">
+                <a href="#sns_citem_3">Multi Store</a>
+            </div>
+            <div id="sns_citem_3">
+                <div class="accordion-inner clearfix">
+                    <!-- Styles -->
+                    <div class="cp-item">
+                        <?php echo $this->getChildHtml('store_switcher'); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+        endif; ?>
+        <!--Body-->
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a href="#sns_citem_1">Body</a>
+            </div>
+            <div id="sns_citem_1">
+                <div class="accordion-inner clearfix">
+                    <!-- Body font-size -->
+                    <div class="cp-item">
+                        <span>Font-size</span>
+                        <div class="inner">
+                            <?php
+                            $fontfamily = array(
+                                         '10px'=>'10px',
+                                         '11px'=>'11px',
+                                         '12px'=>'12px',
+                                         '13px'=>'13px',
+                                         '14px'=>'14px',
+                                         '15px'=>'15px',
+                                         '16px'=>'16px',
+                                         '17px'=>'17px',
+                                         '18px'=>'18px'
+                            );
+                            ?>
+                            <select onchange="javascript: cPApply();" name="sns_ccofig_fontSize" class="cp_select">
+                            <?php foreach($fontfamily as $k=>$v):?>
+                                <option value="<?php echo $v; ?>"<?php echo ($var_snstheme->getParam('fontSize')==$v)?' selected="selected"':'';?>><?php echo $k; ?></option>
+                            <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Body font-family -->
+                    <div class="cp-item body-fontfamily">
+                        <span>Font-family</span>
+                        <div class="inner">
+                        <?php 
+                        $fontfamily = array(
+                                     'Arial'=>'arial',
+                                     'Arial Black'=>'arial-black',
+                                     'Courier New'=>'courier',
+                                     'Georgia'=>'georgia',
+                                     'Impact'=>'impact',
+                                     'Lucida Console'=>'lucida-console',
+                                     'Lucida Grande'=>'lucida-grande',
+                                     'Palatino'=>'palatino',
+                                     'Tahoma'=>'tahoma',
+                                     'Times New Roman'=>'times',
+                                     'Trebuchet'=>'trebuchet',
+                                     'Verdana'=>'verdana',
+                                     'Segoe UI'=>'segoe ui'
+                        );
+                        ?>
+                            <select onchange="javascript: cPApply();" name="sns_ccofig_fontFamily" class="cp_select">
+                            <?php foreach($fontfamily as $k=>$v):?>
+                                <option value="<?php echo $v; ?>"<?php echo ($var_snstheme->getParam('fontFamily')==$v)?' selected="selected"':'';?>><?php echo $k; ?></option>
+                            <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Body Background color -->
+                    <div class="cp-item bodyBgColor">
+                        <span>Background color</span>
+                        <div class="inner">
+                            <input type="text" value="<?php echo $var_snstheme->getParam('bodyBgColor');?>" autocomplete="off" size="7" class="color-picker miniColors" name="sns_ccofig_bodyBgColor" maxlength="7"/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu -->
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a href="#sns_citem_2">
+                Menu
+                </a>
+            </div>
+            <div id="sns_citem_2">
+                <div class="accordion-inner clearfix">
+                    <!-- Styles -->
+                    <div class="cp-item">
+                        <span>Menu styles</span>
+                        <div class="inner">
+                            <select onchange="javascript: cPApply();" name="sns_ccofig_menuStyles" class="cp_select">
+                                <option value="base"<?php echo ($var_snstheme->getParam('menuStyles')=='base')?' selected="selected"':'';?>>Base</option>
+                                <option value="mega"<?php echo ($var_snstheme->getParam('menuStyles')=='mega')?' selected="selected"':'';?>>Mega</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="cp-item">
+                        <span>Keep menu on top</span>
+                        <div class="inner">
+                            <select onchange="javascript: cPApply();" name="sns_ccofig_keepMenu" class="cp_select">
+                                <option value="1"<?php echo ($var_snstheme->getParam('keepMenu')==1)?' selected="selected"':'';?>>Yes</option>
+                                <option value="0"<?php echo ($var_snstheme->getParam('keepMenu')==0)?' selected="selected"':'';?>>No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php if($var_snstheme->getParam('themeColor')=='christmas'): ?>
+        <!-- Snow fall -->
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a href="#sns_citem_4">
+                Snow fall(for Christmas)
+                </a>
+            </div>
+            <div id="sns_citem_4">
+                <div class="accordion-inner clearfix">
+                    <div class="cp-item">
+                        <span>Using snow fall</span>
+                        <div class="inner">
+                            <select onchange="javascript: cPApply();" name="sns_ccofig_useSnowFall" class="cp_select">
+                                <option value="1"<?php echo ($var_snstheme->getParam('useSnowFall')=='1')?' selected="selected"':'';?>>Yes</option>
+                                <option value="0"<?php echo ($var_snstheme->getParam('useSnowFall')=='0')?' selected="selected"':'';?>>No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+    </div>
+    <div class="cpanel-reset">
+        <a  class="btn reset" href="#" onclick="javascript: cPReset(TMPL_COOKIE);">Reset</a>
+    </div>
+    <div id="sns_magic_btn">
+        <i class="icon-magic"></i>
+    </div>
+</div>
+
+    <script type="text/javascript">
+    // <![CDATA[
+
+    $sns_jq(document).ready(function($){
+        /* Begin: Enabling miniColors */
+        $('.bodyBgColor .color-picker').miniColors({
+            change: function(hex, rgb) {
+                $('body#bd').css('background-color', hex);
+                createCookie(TMPL_NAME+'_'+($(this).attr('name').match(/^sns_ccofig_(.*)$/))[1], hex, 365);
+            }
+        });
+        /* End: Enabling miniColors */
+        /* Begin: Set click pattern */
+        function patternClick(el, paramCookie, assign){
+            $(el).click(function(){
+                oldvalue = $(this).parent().find('.active').html();
+                $(el).removeClass('active');
+                $(this).addClass('active');
+                value = $(this).html();
+                if(assign.length > 0){
+                    for($i=0; $i < assign.length; $i++){
+                        $(assign[$i]).removeClass(oldvalue);
+                        $(assign[$i]).addClass(value);
+                    }
+                }
+                if(paramCookie){
+                    $('input[name$="sns_ccofig_'+paramCookie+'"]').attr('value', value);
+                    createCookie(TMPL_NAME+'_'+paramCookie, value, 365);
+                }
+            });
+
+        }
+        patternClick('.body-background-image .pattern',   'body-bgimage',   Array('#bd', ''));
+        /* End: Set click pattern */
+        function templateSetting(array){
+            if(array['0']){
+                $('.bodyBgColor input.miniColors').attr('value', array['0']);
+                $('.bodyBgColor a.miniColors-trigger').css('background-color', array['0']);
+                $('input.sns_ccofig_bodyBgColor').attr('value', array['0']);
+            }
+        }
+        var array             = Array('bodyBgColor');
+        var array_blue       = Array('#FFFFFF');
+        var array_cyan        = Array('#FFFFFF');
+        var array_orange      = Array('#FFFFFF');
+        var array_green       = Array('#FFFFFF');
+        var array_red         = Array('#FFFFFF');
+
+        $('.themeColor.blue').click(function(){
+            $($(this).parent().find('.active')).removeClass('active'); $(this).addClass('active');
+            createCookie(TMPL_NAME+'_'+'themeColor', $(this).html().toLowerCase(), 365);
+            templateSetting(array_blue);
+            cPApply();
+        });
+        $('.themeColor.cyan').click(function(){
+            $($(this).parent().find('.active')).removeClass('active'); $(this).addClass('active');
+            createCookie(TMPL_NAME+'_'+'themeColor', $(this).html().toLowerCase(), 365);
+            templateSetting(array_cyan);
+            cPApply();
+        });
+        $('.themeColor.orange').click(function(){
+            $($(this).parent().find('.active')).removeClass('active'); $(this).addClass('active');
+            createCookie(TMPL_NAME+'_'+'themeColor', $(this).html().toLowerCase(), 365);
+            templateSetting(array_orange);
+            cPApply();
+        });
+        $('.themeColor.green').click(function(){
+            $($(this).parent().find('.active')).removeClass('active'); $(this).addClass('active');
+            createCookie(TMPL_NAME+'_'+'themeColor', $(this).html().toLowerCase(), 365);
+            templateSetting(array_green);
+            cPApply();
+        });
+        $('.themeColor.red').click(function(){
+            $($(this).parent().find('.active')).removeClass('active'); $(this).addClass('active');
+            createCookie(TMPL_NAME+'_'+'themeColor', $(this).html().toLowerCase(), 365);
+            templateSetting(array_red);
+            cPApply();
+        });
+    });
+    // ]]>
+    </script>
+<?php
+}
+?>
+
+<script type="text/javascript">
+    $sns_jq(document).ready(function($) {
+        //accordion
+        $('#sns_cpanel .accordion-heading').accordion_snyderplace({
+            defaultOpen: '#sns_cpanelaccordionfirst',
+            cookieName: 'cpanel_accordion',
+            speed: 'fast',
+            animateOpen: function (elem, opts) { //replace the standard slideUp with custom function
+                elem.next().slideFadeToggle(opts.speed);
+            },
+            animateClose: function (elem, opts) { //replace the standard slideDown with custom function
+                elem.next().slideFadeToggle(opts.speed);
+            }
+        });
+        //custom animation for open/close
+        $.fn.slideFadeToggle = function(speed, easing, callback) {
+            return this.animate({opacity: 'toggle', height: 'toggle'}, speed, easing, callback);
+        };
+    });
+</script>

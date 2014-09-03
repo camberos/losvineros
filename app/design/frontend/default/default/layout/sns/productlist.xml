@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<layout version="1.0">
+	<default>
+        <reference name="head">
+        	<action method="addCss"><stylesheet>sns/productlist/css/style.css</stylesheet></action>
+        </reference>
+    </default>
+	<cms_index_index>
+		<!--<reference name="content-top">
+        	<block type="productlist/list" template="sns/productlist/default.phtml">
+        		<action method="setConfig">
+        		</action>
+			</block>
+        </reference>-->
+	</cms_index_index>
+</layout>

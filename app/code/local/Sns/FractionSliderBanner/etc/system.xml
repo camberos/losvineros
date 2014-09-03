@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <sns>
+            <label>SNSTheme.com</label>
+            <sort_order>205</sort_order>
+        </sns>
+    </tabs>
+    <sections>
+    	<fractionsliderbanner_cfg translate="label" module="fractionsliderbanner">
+    		<label>SNS Fraction Slider Banner</label>
+            <tab>sns</tab>
+			<frontend_type>text</frontend_type>
+            <sort_order>150</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+           	<!-- start general group -->
+            	<general translate="label">
+            		<label>General settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+	                	<title translate="label">
+	                		<label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</title>
+                    </fields>
+	            </general>
+	            <!-- end general group -->
+				
+				<!-- start slideshow effect group -->
+            	<slideshow_effect translate="label">
+            		<label>Slideshow effect</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>15</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<autoplay translate="label">
+                            <label>Auto play</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <comment></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </autoplay>
+                        <timeout translate="label">
+                            <label>Time out</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <comment></comment>
+							<validate>validate-greater-than-zero</validate>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </timeout>
+                        <controls translate="label">
+                            <label>Show controls</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <comment></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </controls>
+ 						<pager translate="label">
+                            <label>Show pager</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pager>
+                        <fullWidth translate="label">
+                            <label>Full width</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <comment></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fullWidth>
+                        <hDimensions translate="label">
+                            <label>Height dimensions</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <comment>Height of dimensions</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hDimensions>
+                        <wDimensions translate="label">
+                            <label>Width dimensions</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <comment>Width of dimensions</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </wDimensions>
+                    </fields>
+	            </slideshow_effect>
+	            <!-- end module setting group -->
+	            
+	            <!-- start product_selection group -->
+	            <banner_selection translate="label">
+	            	<expanded>1</expanded>
+	            	<label>Banner selection</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <bg_slideshow translate="label comment">
+                            <label>Background slideshow</label>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">slideshow-banner/images</upload_dir>
+                            <base_url type="media" scope_info="1">slideshow-banner/images</base_url>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bg_slideshow>
+                        <html_slides translate="label">
+                            <label>HTML Slide</label>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <frontend_model>fractionsliderbanner/adminhtml_system_config_form_field_additem</frontend_model>  
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Add HTML side for slideshow</comment>
+                        </html_slides>
+                    </fields>
+	            </banner_selection>
+
+	            <advanced translate="label">
+	            	<label>Advanced settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>45</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<include_jquery translate="label">
+                    		<label>Include jQuery</label>
+		            		<frontend_type>select</frontend_type>
+		            		<source_model>adminhtml/system_config_source_yesno</source_model>
+		            		<sort_order>10</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+                    	</include_jquery>
+	            		<pretext translate="label">
+		            		<label>Pre-text</label>
+		            		<frontend_type>textarea</frontend_type>
+		            		<sort_order>20</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pretext>
+	            		<posttext translate="label">
+		            		<label>Post-text</label>
+		            		<frontend_type>textarea</frontend_type>
+		            		<sort_order>30</sort_order>
+		            		<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</posttext>
+					</fields>
+	            </advanced>
+            </groups>
+    	</fractionsliderbanner_cfg>
+    </sections>
+</config>

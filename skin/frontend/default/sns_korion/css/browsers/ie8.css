@@ -1,0 +1,58 @@
+/* IE8 not support media query */
+body .container{width: 1170px;}
+/* Fix for menu */
+.sns-megamenu-wrap.horizontal-menu .mega-nav li.level0 > .mega-content-wrap,
+ul.mainnav li > ul[class*="level"] { visibility: visible !important; top: -999em !important}
+
+.sns-megamenu-wrap.horizontal-menu .mega-nav li.level0:hover > .mega-content-wrap,
+ul.mainnav > li:hover > ul[class*="level"] {top: 43px !important;}
+ul.mainnav > li li:hover > ul[class*="level"] {top: 5px !important;}
+#sns_off_screennav{display: none;}
+
+/* Fix background for item */
+/*
+.products-list .item .item-img .product-image:before,
+.products-grid .item .item-inner .item-img .item-img-info a.product-image:before{
+	background-color: transparent !important;
+}*/
+/* quickview */
+/*
+.products-list .item .item-img .sns-btn-quickview:before{display: none;}
+.products-list .item .item-img:hover .sns-btn-quickview:before{display: block;}
+
+#sns_header .header-right .header-right-inner .sns-ajaxcart,
+#sns_header .header-right .header-right-inner .block-compare{
+	z-index: 1;
+}
+#sns_header .header-right .header-right-inner .sns-ajaxcart:hover,
+#sns_header .header-right .header-right-inner .block-compare:hover{
+	z-index: 2;
+}
+#sns_header .header-right .header-right-inner .sns-ajaxcart .block-title:after{
+	display: none !important;
+}*/
+#sns_topheader .topheader-right .topheader-right-inner #search_mini_form .form-search{
+	display: none !important; visibility: visible !important;
+}
+#sns_topheader .topheader-right .topheader-right-inner #search_mini_form:hover .form-search{
+	display: block !important; visibility: visible !important;
+}
+#sns_topheader .sns-ajaxcart .block-content{
+	display: none; visibility: visible;
+}
+#sns_topheader .sns-ajaxcart:hover .block-content{
+	display: block; visibility: visible;
+}
+.hideleft,
+.hideflip {visibility: hidden;}
+.showleft,
+.showflip {visibility: visible;}
+
+
+body.use-bgoverlay #sns_content .box-up-sell .block-content .up-sell-products ul.products-grid li.item-usl .item-uppsel .product-image:before,
+body.use-bgoverlay .sns-product-detail .product-image-zoom .cloud-zoom:before,
+body.use-bgoverlay .sns-product-detail .more-views .slide-gallery ul li a:before,
+body.use-bgoverlay .products-grid .item .item-inner .item-img .item-img-info a.product-image:before,
+body.use-bgoverlay .products-list .item .item-img .product-image:before{
+	background: url("../../images/imgp-bgoverlay.png") repeat left top;
+}

@@ -1,0 +1,48 @@
+<?php
+/*------------------------------------------------------------------------
+ # SNS SlideshowBanner - Version 1.0
+ * Copyright (C) 2013 The SNS Theme. All Rights Reserved.
+ * @license - GNU/GPL, http://www.gnu.org/licenses/gpl.html
+ * Author: SNS Theme
+ * Websites: http://www.snstheme.com
+-------------------------------------------------------------------------*/
+$config = $this->getConfigObject();
+$slides = $this->_getSlide(); //Zend_Debug::dump($slides); die();
+$baseUrl = str_replace('https:', 'http:', str_replace('/index.php/', '', $this->getBaseURL()));
+?>
+<script type="text/javascript">
+	// <![CDATA[
+		$sns_jq(window).load(function(){
+			$sns_jq('.sns-fraction-slider').fractionSlider({
+				'autoChange' :          <?php echo ($config['autoplay'])?'true':'false';?>,
+				'timeout' : 			<?php echo ($config['timeout']); ?>,
+				'fullWidth': 			<?php echo ($config['fullWidth'])?'true':'false';?>,
+				'dimensions': 			"<?php echo ($config['wDimensions'])?>,<?php echo ($config['hDimensions'])?>",
+				'controls': 			<?php echo ($config['controls'])?'true':'false';?>,
+				'pager': 				<?php echo ($config['pager'])?'true':'false';?>,
+				'responsive': 			true,
+			    'increase': 			false,
+				'pauseOnHover': 		false
+			});
+		});
+	// ]]>
+</script>
+	<?php if (!empty( $config['pretext'] )): ?>
+		<div class="sns-pretext"><?php echo $config['pretext']; ?></div>
+	<?php endif; ?>
+    <div class="sns-slideshow-wrap">
+		<div class="responisve-container">
+			<div class="slider sns-fraction-slider container" style="background-image:url(<?php echo  Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'slideshow-banner/images/'.$config['bg_slideshow'] ?>)">
+				<div class="fs_loader"></div>
+				<?php
+				foreach ($slides as $slide) {
+					echo str_replace('src="', 'src="'.$baseUrl.'/', $slide['slide']);
+				} ?>
+			</div>
+		</div>
+	</div>
+
+
+    <?php if($config['posttext']): ?>
+    <div class="sns-posttext"><?php echo $config['posttext'];?></div>
+    <?php endif;?>

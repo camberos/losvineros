@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Sns_Megamenu>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Sns_Megamenu>
+    </modules>
+</config> 

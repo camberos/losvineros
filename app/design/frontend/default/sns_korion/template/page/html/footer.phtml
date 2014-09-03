@@ -1,0 +1,56 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design_default
+ * @package    Mage
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+global $var_snstheme;
+?>
+<div class="span12">
+    <div class="sns-info clearfix">
+	    <?php //echo $this->getChildHtml() ?>
+	     <?php echo $this->getChildHtml('footer_links') ?>
+	</div>
+	<div class="sns-copyright">
+	<?php echo $this->getCopyright() ?>
+	 Designed by <a href="http://www.snstheme.com/" data-toggle="tooltip" data-original-title="Visit SNSTheme.Com!" title="Visit SNSTheme.Com!">SNSTheme.Com</a>.
+	</div>
+	<?php if($var_snstheme->getParam('showTooltip')):?>
+	<script type="text/javascript">
+	//<![CDATA[
+	    $sns_jq(function($){
+	        function snsTooltip(){
+	        	$("body#bd *[data-toggle='tooltip']").tooltip();
+	        }
+	        snsTooltip();
+	        setInterval(function(){snsTooltip()},1000);
+	    });
+	//]]>
+	</script>
+<?php endif; ?>
+</div>
+<div id="sns_tools">
+<?php
+if($var_snstheme->getParam('showCpanel')) include (dirname(__FILE__).'/cpanel.phtml');
+if($var_snstheme->getParam('scrollToTop')) include (dirname(__FILE__).'/scrolltotop.phtml');
+?>
+</div>

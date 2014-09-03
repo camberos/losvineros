@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<sns translate="label" module="korion">
+            <label>SNSTheme.com</label>
+            <sort_order>207</sort_order>
+        </sns>
+	</tabs>
+	<sections>
+		<korion_cfg translate="label" module="korion">
+			<label>SNS Korion - config</label>
+			<tab>sns</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>150</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<general translate="label">
+					<label>General settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+			        <fields>
+						<showCpanel translate="label">
+							<label>Show Cpanel</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Show/Hide cPanel on the frontend</comment>
+						</showCpanel>
+						<scrollToTop translate="label">
+							<label>Show button scroll to top</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Show/Hide button scroll to top</comment>
+						</scrollToTop>
+						<showTooltip translate="label">
+							<label>Show Tooltip</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Show/Hide Tooltip on button,link, ... (Ex: for buttons: add to cart, add to compare, ...)</comment>
+						</showTooltip>
+						<themeColor translate="label">
+							<label>Theme color</label>
+							<frontend_type>select</frontend_type>
+							<source_model>korion/system_config_source_listColor</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</themeColor>
+						<layoutType translate="label">
+							<label>Layout Type</label>
+							<frontend_type>select</frontend_type>
+							<source_model>korion/system_config_source_listLayout</source_model>
+							<sort_order>35</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</layoutType>
+						<body_heading translate="label">
+							<label>Body</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</body_heading>
+						<fontFamily translate="label">
+							<label>Body font-family</label>
+							<frontend_type>select</frontend_type>
+							<source_model>korion/system_config_source_listBodyFont</source_model>
+							<sort_order>51</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Input body font-family ( Ex: Arial )</comment>
+						</fontFamily>
+						<fontSize translate="label">
+							<label>Body font-size</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>52</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Input body font size text ( Ex: 14px )</comment>
+						</fontSize>
+						<bodyBgColor translate="label">
+							<label>Body background color</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Input background color here ( Ex: #FFFFFF )</comment>
+						</bodyBgColor>
+						<menu_style_heading translate="label">
+							<label>Menu style</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>110</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</menu_style_heading>
+						<resMenu translate="label">
+							<label>Responsive menu</label>
+							<frontend_type>select</frontend_type>
+							<source_model>korion/system_config_source_listResMenu</source_model>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Responsive menu for mobile(maybe for Tablet portrait)</comment>
+						</resMenu>
+						<menuStyles translate="label">
+							<label>Style</label>
+							<frontend_type>select</frontend_type>
+							<source_model>korion/system_config_source_listMenuStyles</source_model>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Support 2 Menu Styles. </comment>
+						</menuStyles>
+						<keepMenu translate="label">
+							<label>Keep menu on top</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Seleect Yes top keep menu on top when you scroll</comment>
+						</keepMenu>
+						<googlefont_heading translate="label">
+							<label>Google Font</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>130</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</googlefont_heading>
+						<googleFont translate="label">
+							<label>Select google font</label>
+							<frontend_type>select</frontend_type>
+							<source_model>korion/system_config_source_listGoogleFont</source_model>
+							<sort_order>140</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Input google font name</comment>
+						</googleFont>
+						<googleFontTargets translate="label">
+							<label>Google font targets</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>145</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Tags will be applied with Google font with separate "," ( Ex: "h1, .classname" )</comment>
+						</googleFontTargets>
+						<product_heading translate="label">
+							<label>Product settings</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>150</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_heading>
+						<use_bgoverlay translate="label">
+							<label>Use background overlay</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>155</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Use background overlay for products image</comment>
+						</use_bgoverlay>
+				   </fields>
+				</general>
+				<productlisting translate="label">
+			    	<label>Product Listing</label>
+			  		<frontend_type>text</frontend_type>
+			  		<sort_order>20</sort_order>
+			  		<show_in_default>1</show_in_default>
+			  		<show_in_website>1</show_in_website>
+			  		<show_in_store>1</show_in_store>
+	       			<fields>
+	       				<listinggrid_heading translate="label">
+							<label>Listing Grid</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</listinggrid_heading>
+	       				<heightItemInfo translate="label">
+							<label>Height of item info</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Height of item info(it contain: product title, price, ...)</comment>
+						</heightItemInfo>
+	       			</fields>
+		       	</productlisting>
+			</groups>
+		</korion_cfg>
+	</sections>
+</config>

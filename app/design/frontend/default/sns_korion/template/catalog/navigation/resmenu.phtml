@@ -1,0 +1,131 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design_default
+ * @package    Mage
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @see Mage_Catalog_Block_Navigation
+ */
+global $var_snstheme;
+?>
+<?php
+if($var_snstheme->getParam('resMenu')=='collapse'){ ?>
+    <button class="btn btn-navbar collapsed" type="button"><i class="icon-reorder"></i>
+        <!--<i class="icon-align-justify"></i>-->
+    </button>
+    <div id="sns_resmenu_collapse" style="height:0px">
+        <ul class="nav resmenu">
+            <li <?php echo $homecls;?>>
+                <a <?php echo $homecls;?> href="<?php echo $this->getUrl('') ?>" title="Home"><span>Home</span></a>
+            </li>
+            <?php foreach ($this->getStoreCategories() as $_category): ?>
+                <?php echo $this->drawItem($_category) ?>
+            <?php endforeach ?>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        $sns_jq(document).ready(function($){
+            $('body#bd').addClass('resmenu-collapse');
+            $('#sns_resmenu_collapse .nav li.level0').each(function(){
+                if($(this).hasClass('parent')){
+                    $(this).find('> ul').wrap('<div class="res-wrapnav">');
+                    $(this).append('<span class="menuress-toggle"></span>');
+                }
+            });
+            $('.btn-navbar').click(function(){
+                if($('#sns_resmenu_collapse').hasClass('active')){
+                    $('#sns_resmenu_collapse').removeClass('active');
+                    $('#sns_resmenu_collapse').css('height', '0px');
+                }else{
+                    $('#sns_resmenu_collapse').addClass('active');
+                    $('#sns_resmenu_collapse').css('height', $('#sns_resmenu_collapse ul.resmenu').outerHeight());
+                }
+            });
+        });
+        $sns_jq(window).load(function(){
+            $sns_jq('#sns_resmenu_collapse').css('width', $sns_jq('body#bd').outerWidth());
+            $sns_jq('#sns_resmenu_collapse').css('left', 0 - $sns_jq('#sns_resmenu_collapse').offset().left);
+
+            $sns_jq('#sns_resmenu_collapse .parent > .res-wrapnav').each(function(){
+                if($sns_jq(this).parent().hasClass('open')){
+                    $sns_jq(this).css('height', $sns_jq(this).children('ul').height());
+                }
+            });
+            $sns_jq('#sns_resmenu_collapse .parent .menuress-toggle').click(function(){
+                if($sns_jq(this).parent().hasClass('open')){
+                    $sns_jq(this).parent().removeClass('open');
+                    $sns_jq(this).parent().children('.res-wrapnav').css('height', '0px');
+                }else{
+                    $sns_jq(this).parent().addClass('open');
+                    $sns_jq(this).parent().children('.res-wrapnav').css('height', $sns_jq(this).parent().children('.res-wrapnav').children('ul').height());
+                }
+            });
+        });
+    $sns_jq(window).resize(function(){
+        setTimeout(function(){
+            $sns_jq('#sns_resmenu_collapse').css('width', $sns_jq('body#bd').outerWidth());
+            $sns_jq('#sns_resmenu_collapse').css('left', -($sns_jq('body#bd').outerWidth()-$sns_jq('#sns_menu .container').outerWidth())/2);
+        }, 200);
+    })
+    </script>
+    <?php
+    }elseif($var_snstheme->getParam('resMenu')=='sidebar'){ ?>
+    <button class="btn btn-navbar sns-resmenu-sidebar" type="button"><i class=" icon-reorder"></i>
+    </button>
+    <ul class="nav resmenu" style="display:none">
+        <li <?php echo $homecls;?>>
+            <a <?php echo $homecls;?> href="<?php echo $this->getUrl('') ?>" title="Home"><span>Home</span></a>
+        </li>
+        <?php foreach ($this->getStoreCategories() as $_category): ?>
+            <?php echo $this->drawItem($_category) ?>
+        <?php endforeach ?>
+    </ul>
+    <script type="text/javascript">
+        $sns_jq(document).ready(function($){
+            $('body#bd').addClass('resmenu-sb');
+            $('body#bd #sns_wrapper').append('<nav id="sns_off_screennav" class="wrap"><ul></ul></nav>');
+            $('body#bd #sns_wrapper').append('<div id="sns_off_screennav_overlay"></div>');
+            //$('#sns_off_screennav').css('height', $(window).outerHeight());
+            //$('body#bd').css({'height': $(window).outerHeight(), 'overflow':'hidden'});
+            $('#sns_off_screennav ul').html($('#sns_mainnav ul.resmenu').html());
+            $('#sns_mainnav ul.resmenu').html('');
+
+            $('.btn.sns-resmenu-sidebar').click(function(){
+                if($('body#bd').hasClass('on-sidebar')){
+                    $('body#bd').removeClass('on-sidebar');
+                }else{
+                    $('body#bd').addClass('on-sidebar');
+                }
+            });
+            eventType = (IS_HANDHELD)?'touchstart' : 'click';
+            $('#sns_off_screennav_overlay').bind(eventType, function(){
+                $('body#bd').removeClass('on-sidebar');
+            });
+        });
+    </script>
+    <?php
+} ?>

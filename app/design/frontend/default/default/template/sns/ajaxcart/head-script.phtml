@@ -1,0 +1,67 @@
+<script type="text/javascript">
+//<![CDATA[
+	var isCOPage=<?php echo (strpos(Mage::app()->getFrontController()->getRequest()->getPathInfo(),'/checkout/')!==false AND strpos(Mage::app()->getFrontController()->getRequest()->getPathInfo(),'/checkout/cart/configure/')===false)?'1':'0' ?>;
+	var isWLPage=<?php echo (strpos(Mage::app()->getFrontController()->getRequest()->getPathInfo(),'/wishlist/')!==false)?'1':'0'?>;
+	var isCPPage=<?php echo (strpos(Mage::app()->getFrontController()->getRequest()->getPathInfo(),'/catalog/product_compare/')!==false)?'1':'0'?>;
+	var isLoggedIn="<?php echo (Mage::getSingleton('customer/session')->isLoggedIn())?1:0?>";
+	var skiplink ='<?php
+	if (strpos(Mage::app()->getFrontController()->getRequest()->getPathInfo(),'/checkout/cart/configure/')!==false ){
+			$matches=NULL;
+			preg_match('/\/id\/\d+\//', Mage::app()->getFrontController()->getRequest()->getPathInfo(), $matches);
+			echo $matches[0];
+	}?>';
+	var ajax_for_compare = <?php echo (Mage::getStoreConfig('ajaxcart_cfg/general/ajax_for_compare'))?true:0; ?>;
+	var ajax_for_wishlist = <?php echo (Mage::getStoreConfig('ajaxcart_cfg/general/ajax_for_wishlist'))?true:0; ?>;
+	var ajax_for_update = <?php echo (Mage::getStoreConfig('ajaxcart_cfg/general/ajax_for_update'))?true:0; ?>;
+	var show_confirm = <?php echo (Mage::getStoreConfig('ajaxcart_cfg/show_confirm_setting/show_confirm'))?true:0; ?>;
+	var time_cd = <?php echo Mage::getStoreConfig('ajaxcart_cfg/show_confirm_setting/time_countdown') ?>;
+	var show_product_in_confirm = <?php echo (Mage::getStoreConfig('ajaxcart_cfg/show_confirm_setting/show_product_in_confirm'))?true:0; ?>;
+	var loader='<img alt="<?php echo Mage::helper('ajaxcart')->__('Loading...');?>" src="<?php echo $this->getSkinUrl('sns/ajaxcart/images/ajax-loader.gif')?>"/><div><?php echo Mage::helper('ajaxcart')->__('Please wait...');?></div>';
+	var usingImgFly = <?php echo (Mage::getStoreConfig('ajaxcart_cfg/general/usingImgFly'))?>;
+	var scrollToCart = <?php echo (Mage::getStoreConfig('ajaxcart_cfg/general/scrollToCart'))?>;
+	
+	function getConfirm(result){
+		if(!show_confirm){ return false; }
+		$("ajax_overlay").onclick = function(e){
+			$("confirmbox").innerHTML='';
+			$("ajax_content").setStyle({display:"none"});
+			$("sns_ajaxwrap").setStyle({display:"none"});
+			$("ajax_overlay").setStyle({display:"none"});
+		};
+		cfaction = "";
+		cfaction_text = "";
+		cfaddedto_text = (closeCFirm==1 || deletePCompare==1)?"<?php echo Mage::helper('ajaxcart')->__('Item deleted from');?> ":" <?php echo Mage::helper('ajaxcart')->__('added to');?> ";
+
+		if(result.addtype=='0'){
+				ac_text=(isCOPage==1)?"<?php echo Mage::helper('ajaxcart')->__('Proceed to Checkout');?>":"<?php echo Mage::helper('ajaxcart')->__('Go to Cart');?>";
+				ac_href=(isCOPage==1)?"<?php echo Mage::getUrl('checkout/onepage/') ?>":"<?php echo Mage::getUrl('checkout/cart/') ?>";
+				cfaction='<li><a id="btn_cfaction" title="<?php echo Mage::helper('ajaxcart')->__('Checkout');?>" class="btn view-cart" onclick="$(\'confirmbox\').innerHTML=\'\';$(\'ajax_content\').setStyle({display:\'none\'});$(\'sns_ajaxwrap\').setStyle({display:\'none\'});window.location=\''+ac_href+'\';"  href="'+ac_href+'">	<span>'+ac_text+'</span></a></li>';
+				cfaction_text="<?php echo Mage::helper('ajaxcart')->__('your shopping cart.');?>";
+		}else if(result.addtype=='1'){
+				cfaction='<li><a id="btn_cfaction" title="<?php echo Mage::helper('ajaxcart')->__('View Wish List');?>" class="btn view-wishlist" onclick="$(\'confirmbox\').innerHTML=\'\';$(\'ajax_content\').setStyle({display:\'none\'});$(\'sns_ajaxwrap\').setStyle({display:\'none\'});window.location=\'<?php echo Mage::getUrl('wishlist/index/') ?>\';"  href="<?php echo Mage::getUrl('wishlist/index/') ?>">	<span><?php echo Mage::helper('ajaxcart')->__('My Wishlist');?></span></a></li>';
+				cfaction_text="<?php echo Mage::helper('ajaxcart')->__('your wishlist.');?>";
+		}else if(result.addtype=='2'){
+				strPop=result.co_sb;
+				ac_href=strPop.substring(strPop.indexOf("popWin('"),strPop.indexOf(")",strPop.indexOf("popWin('"))+1);
+				if(trim(ac_href)!=''){
+					cfaction = '<li><a id="btn_cfaction" title="<?php echo Mage::helper('ajaxcart')->__('View Comparision');?>" class="btn view-compare" href="javascript:void(\'0\')" onclick="$(\'confirmbox\').innerHTML=\'\';$(\'ajax_content\').setStyle({display:\'none\'});$(\'sns_ajaxwrap\').setStyle({display:\'none\'});'+ac_href+'">	<span><?php echo Mage::helper('ajaxcart')->__('Compare');?></span></a></li>';
+				}else{
+					cfaction = '';
+				}
+				cfaction_text="<?php echo Mage::helper('ajaxcart')->__('comparison list.');?>";
+		}
+
+		cfhead = '<span id="cout_down">'+ time_cd +'s</span><p class="head-cfbox '+((result.addtype=='1' || result.addtype=='2')?'show':'')+'"><span class="product-title">'+result.pdname+'</span>'+cfaddedto_text+cfaction_text+'</p>';
+		pdinfo= (typeof result.pdinfo !="undefined")?result.pdinfo:"";
+		confirmcontent =	cfhead + ((typeof pdinfo.item !="undefined" && pdinfo.item!="" && show_product_in_confirm)?(pdinfo.item):"") + ((typeof pdinfo.other !="undefined" && pdinfo.other!="")?pdinfo.other:"") + '<div id="bottom-cfbox"><ul>'+cfaction+'</ul></div>';
+
+		$("confirmbox").innerHTML=confirmcontent;
+		setTimeout("getCDown(time_cd)",1000);
+		$("ajax_content").setStyle({display:"block"});
+		$("sns_ajaxwrap").setStyle({display:"block"});
+		fixPosWrap();
+		if(time_cd==0)
+			isCPPage=0;
+	}
+//]]>
+</script>

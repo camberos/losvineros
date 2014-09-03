@@ -1,0 +1,184 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design_default
+ * @package    Mage
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+ global $var_snstheme;
+?>
+<!DOCTYPE html>
+<html xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body id="bd" class="<?php echo $var_snstheme->template ?> <?php echo $this->getBodyClass();?><?php echo ($this->getChildHtml('breadcrumbs'))?'':' no-breadcrumbs'?><?php echo($var_snstheme->getParam('use_bgoverlay'))?' use-bgoverlay':'';?>">
+    <section id="sns_wrapper"<?php echo ($var_snstheme->getParam('layoutType')==2)?' class="container"':''; ?>>
+        <?php echo $this->getChildHtml('after_body_start') ?>
+        <?php echo $this->getChildHtml('header') ?>
+        <!-- BEGIN: SlideShow -->
+        <?php if ($this->getChildHtml('slideshowbanner')) : ?>
+        <div id="sns_slideshow" class="wrap">
+            <div class="slideshow-inner clearfix">
+                <?php echo $this->getChildHtml('slideshowbanner') ?>
+            </div>
+        </div>
+        <?php endif; ?>
+        <!-- END: SlideShow -->
+        <!-- BEGIN: Top Spotlight -->
+        <?php if ($this->getChildHtml('topsl')) : ?>
+        <div id="sns_topsl" class="wrap">
+            <div class="container">
+                <div class="row-fluid">
+                    <?php echo $this->getChildHtml('topsl') ?>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
+        <!-- END: Top Spotlight -->
+        <?php if($this->getChildHtml('breadcrumbs')): ?>
+        <!-- BEGIN: breadcrumbs -->
+        <div id="sns_breadcrumbs" class="wrap">
+            <div class="container">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <?php echo $this->getChildHtml('breadcrumbs') ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: breadcrumbs -->
+        <?php endif; ?>
+        <!-- BEGIN: Main Content -->
+        <div id="sns_content" class="wrap">
+           <div class="container">
+                <div class="row-fluid">
+                    <div id="sns_left" class="span3" data-tablet="span4" data-stablet="span4">
+                        <div class="col-inner clearfix">
+                        <?php echo $this->getChildHtml('left') ?>
+                        </div>
+                    </div>
+                    <div id="sns_main" class="span9 col-main" data-tablet="span8 col-main" data-stablet="span8 col-main">
+                        <!-- global messages -->
+                        <?php echo $this->getChildHtml('global_messages') ?>
+                        <!-- // global messages -->
+                        <?php
+                        if( $this->getChildHtml('content-top') ): ?>
+                        <div id="sns_maintop" class="span12">
+                            <!-- primary content -->
+                            <?php echo $this->getChildHtml('content-top') ?>
+                            <!-- // primary content -->
+                        </div>
+                        <?php
+                        endif; ?>
+                        <?php
+                        if( $this->getChildHtml('content') || $this->getChildHtml('content-main') ): ?>
+                        <div id="sns_mainmidle" class="span12 clearfix">
+                            <!-- primary content -->
+                            <?php echo $this->getChildHtml('content') ?>
+                            <?php if($this->getChildHtml('content-main')):?>
+                            <div class="row-fluid">
+                                <?php echo $this->getChildHtml('content-main') ?>
+                            </div>
+                            <?php endif; ?>
+                            <!-- // primary content -->
+                        </div>
+                        <?php
+                        endif; ?>
+                        <?php
+                        if( $this->getChildHtml('content-bottom') ): ?>
+                        <div id="sns_mainbottom" class="span12">
+                            <!-- primary content -->
+                            <?php echo $this->getChildHtml('content-bottom') ?>
+                            <!-- // primary content -->
+                        </div>
+                        <?php
+                        endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Main Content -->
+        <!-- BEGIN: productswrap -->
+        <?php if ($this->getChildHtml('productswrap')) : ?>
+        <div id="sns_productswrap" class="wrap">
+            <div class="container">
+                <div class="row-fluid">
+                    <?php echo $this->getChildHtml('productswrap') ?>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
+        <!-- END: productswrap -->
+        <!-- BEGIN: botsl -->
+        <?php if ($this->getChildHtml('botsl')) : ?>
+        <div id="sns_botsl" class="wrap">
+            <div class="container">
+                <div class="row-fluid">
+                    <?php echo $this->getChildHtml('botsl') ?>
+                    <?php
+                    if( Mage::getModel('cms/block')->load('position-6')->getIsActive() ){
+                        include (dirname(__FILE__).'/slider-testimonials.phtml');
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
+        <!-- END: botsl -->
+        <?php if ( (Mage::getModel('cms/block')->load('position-7')->getIsActive() || Mage::getModel('cms/block')->load('position-77')->getIsActive() || Mage::getModel('cms/block')->load('position-777')->getIsActive()) && $var_snstheme->isHomepage() ):
+        ?>
+        <!-- BEGIN: Brand -->
+        <div id="sns_brand" class="wrap">
+            <div class="container">
+                <div class="row-fluid">
+                    <?php include (dirname(__FILE__).'/slider-brands.phtml'); ?>
+                </div>
+            </div>
+        </div>
+        <!-- END: Brand -->
+        <?php endif; ?>
+        <!-- BEGIN: Footer -->
+        <div id="sns_footer" class="wrap">
+            <div class="container">
+                <div class="row-fluid footer-top">
+                    <div class="span3">
+                        <?php echo $this->getChildHtml('aboutus') ?>
+                    </div>
+                    <div class="span9">
+                        <?php echo $this->getChildHtml('spotlight1') ?>
+                    </div>
+                </div>
+                <div class="row-fluid footer-bootom">
+                    <?php echo $this->getChildHtml('footer') ?>
+                </div>
+            </div>
+        </div>
+        <?php echo $this->getAbsoluteFooter(); ?>
+        <?php echo $this->getChildHtml('before_body_end'); ?>
+    </section>
+</body>
+</html>
