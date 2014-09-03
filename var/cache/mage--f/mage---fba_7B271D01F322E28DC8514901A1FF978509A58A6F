@@ -1,0 +1,28 @@
+<div class="block block-sns-layered-nav">
+  <div class="block-layered-nav-inner">
+    <div class="block-title">
+        <strong><span>Category</span></strong>
+    </div>
+    <div class="block-content clearfix">
+        <ul id="sns_sidenav">
+                </ul>
+    </div>
+      </div>
+</div>
+    <script type="text/javascript" src="http://losvineros.com.au/skin/frontend/default/sns_korion/js/jquery.accordion.js"></script>
+<script type="text/javascript">
+	$sns_jq(document).ready(function($) {
+		$('#sns_sidenav li.level0.parent > a').addClass ('subhead');
+		$('#sns_sidenav li.level0.parent > a').after ('<a href="#" title="" class="toggle"></a>');
+		// second simple accordion with special markup
+		$('#sns_sidenav').accordion({
+			active: '.active',
+			header: '.toggle',
+			navigation: true,
+			event: 'click',
+			fillSpace: false,
+			autoheight: false,
+			alwaysOpen: false
+		});	
+	});
+</script>

@@ -1,0 +1,32 @@
+<div id="sns_resmenu" class="sns-resmenu menu-sidebar">
+    <button class="btn btn-navbar sns-resmenu-sidebar" type="button"><i class=" icon-reorder"></i>
+    </button>
+    <ul class="nav resmenu" style="display:none">
+        <li class="nav-home level0">
+            <a class="nav-home level0" href="http://losvineros.com.au/?___SID=U" title="Home"><span>Home</span></a>
+        </li>
+            </ul>
+    <script type="text/javascript">
+        $sns_jq(document).ready(function($){
+            $('body#bd').addClass('resmenu-sb');
+            $('body#bd #sns_wrapper').append('<nav id="sns_off_screennav" class="wrap"><ul></ul></nav>');
+            $('body#bd #sns_wrapper').append('<div id="sns_off_screennav_overlay"></div>');
+            //$('#sns_off_screennav').css('height', $(window).outerHeight());
+            //$('body#bd').css({'height': $(window).outerHeight(), 'overflow':'hidden'});
+            $('#sns_off_screennav ul').html($('#sns_mainnav ul.resmenu').html());
+            $('#sns_mainnav ul.resmenu').html('');
+
+            $('.btn.sns-resmenu-sidebar').click(function(){
+                if($('body#bd').hasClass('on-sidebar')){
+                    $('body#bd').removeClass('on-sidebar');
+                }else{
+                    $('body#bd').addClass('on-sidebar');
+                }
+            });
+            eventType = (IS_HANDHELD)?'touchstart' : 'click';
+            $('#sns_off_screennav_overlay').bind(eventType, function(){
+                $('body#bd').removeClass('on-sidebar');
+            });
+        });
+    </script>
+    </div>

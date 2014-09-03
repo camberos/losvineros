@@ -1,0 +1,41 @@
+<div class="span12">
+    <div class="sns-info clearfix">
+	    	     <ul class="links">
+                        <li class="first" ><a href="http://losvineros.com.au/catalog/seo_sitemap/category/?___SID=U" title="Site Map" >Site Map</a></li>
+                                <li ><a href="http://losvineros.com.au/catalogsearch/term/popular/?___SID=U" title="Search Terms" >Search Terms</a></li>
+                                <li ><a href="http://losvineros.com.au/catalogsearch/advanced/?___SID=U" title="Advanced Search" >Advanced Search</a></li>
+                                <li ><a href="http://losvineros.com.au/sales/guest/form/?___SID=U" title="Orders and Returns" >Orders and Returns</a></li>
+                                <li class=" last" ><a href="http://losvineros.com.au/contacts/?___SID=U" title="Contact Us" >Contact Us</a></li>
+            </ul>
+	</div>
+	<div class="sns-copyright">
+	&copy; 2014 Los Vineros Pty Ltd. All Rights Reserved.	 Designed by <a href="http://www.snstheme.com/" data-toggle="tooltip" data-original-title="Visit SNSTheme.Com!" title="Visit SNSTheme.Com!">SNSTheme.Com</a>.
+	</div>
+	</div>
+<div id="sns_tools">
+<a id="sns-totop" href="#"><i class="icon-angle-up"></i></a>
+
+<script type="text/javascript">
+	$sns_jq(function($){
+		// back to top
+		$("#sns-totop").hide();
+		$(function () {
+			var wh = $(window).height();
+			var whtml =  $(document).height();
+			$(window).scroll(function () {
+				if ($(this).scrollTop() > whtml/10) {
+					$('#sns-totop').fadeIn();
+				} else {
+					$('#sns-totop').fadeOut();
+				}
+			});
+			$('#sns-totop').click(function () {
+				$('body,html').animate({
+					scrollTop: 0
+				}, 800);
+				return false;
+			});
+		});
+		// end back to top
+	});
+</script></div>

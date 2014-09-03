@@ -1,0 +1,12 @@
+2014-09-02T01:41:28+00:00 ERR (3): 
+exception 'Mage_Core_Exception' with message 'Invalid webservice adapter specified.' in /var/www/app/Mage.php:595
+Stack trace:
+#0 /var/www/app/code/core/Mage/Api/Model/Server.php(127): Mage::throwException('Invalid webserv...')
+#1 /var/www/api.php(78): Mage_Api_Model_Server->initialize(NULL)
+#2 {main}
+2014-09-02T12:55:01+00:00 ERR (3): 
+exception 'Mage_Core_Exception' with message 'Invalid webservice adapter specified.' in /var/www/app/Mage.php:595
+Stack trace:
+#0 /var/www/app/code/core/Mage/Api/Model/Server.php(127): Mage::throwException('Invalid webserv...')
+#1 /var/www/api.php(78): Mage_Api_Model_Server->initialize(NULL)
+#2 {main}
